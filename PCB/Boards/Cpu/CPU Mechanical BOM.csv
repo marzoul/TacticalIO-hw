@@ -1,0 +1,11 @@
+Index,Component,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number
+,----------------------------------,,,,,
+1,Backplane connector 3cm spacer,1,Samtec,TW-25-12-G-D-995-060,Samtec,TW-25-12-G-D-995-060
+2,Backplane spacer : HEX STANDOFF M3 BRASS 30MM,4,Digikey,952-1513-ND,Harwin Inc,R30-3003002
+3,"Backplane spacer nuts: HEX NUT 0.217"" M3",4,Digikey,H762-ND,B&F Fastener Supply,MHNZ 003
+4,Raspberry spacer :  HEX STANDOFF M2.5 BRASS 16MM,4,Digikey,952-2164-ND,Harwin Inc,R25-1001602
+5,Raspberry spacer washer : WASHER FLAT #2 NYLON,4,digikey,KEY1028-ND,Keystone Electronics,3114
+6,Raspberry spacer screw : ,8,Digikey,KEY1048-ND,Keystone Electronics,29301
+7,2 Pins connector,1,Digikey,609-3797-ND,FCI,20020004-D021B01LF
+8,3 Pins connector,1,Digikey,609-3798-ND,FCI,20020004-D031B01LF
+9,6 Pins connector,1,Digikey,609-3801-ND,FCI,20020004-D061B01LF

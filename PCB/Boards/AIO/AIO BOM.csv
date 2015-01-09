@@ -1,0 +1,28 @@
+Index,Ref Des,Component,Value,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number,Package,Component Type
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+1,,Resistor,N/U (0R0),1,Do not use,,Do not use,,805,Surface-Mount
+2,,Resistor,N/U,3,Do not use,,Do not use,,805,Surface-Mount
+3,U6,CC10-0512DR-E,,1,Digikey,445-3328-ND,TDK-Lambda Americas Inc,CC10-0512DR-E,CC10-0512DR-E,Surface-Mount
+4,C1  C6  C14  C17  C18  C21  C29  C31,Capacitor,0.015uF,8,Digikey,445-4435-1-ND,TDK Corporation,C2012X7R2A153K125AA,805,Surface-Mount
+5,C2  C5  C15  C16  C19  C20  C28  C30,Capacitor,2.2uF,8,Digikey,445-5968-1-ND,TDK Corporation,C2012X7R1H225K125AC,805,Surface-Mount
+6,C7  C8  C9  C22  C23  C24  C25  C27  C33  C34  C36  C40  C42  C46  C48  C49  C51  C53,Capacitor,10uF,18,Digikey,445-11516-1-ND,TDK Corporation,C2012JB1V106K085AC,805,Surface-Mount
+7,D1  D2  D3  D4  D5,LED,,5,Digikey,475-3118-1-ND,OSRAM opto Semiconductors Inc.,LG L29K-F2J1-24-Z,603,Surface-Mount
+8,C10  C11  C12  C13  C26  C35  C38  C39  C43  C47,Capacitor,0.1uF,10,Digikey,490-4789-1-ND,Murata Electronics North America,GCM21BR72A104KA37L,805,Surface-Mount
+9,C3  C4  C32  C37  C41  C44  C45  C50  C52,Capacitor,1uF,9,Digikey,490-5320-1-ND,Murata Electronics North America,GCM21BR7YA105KA55L,805,Surface-Mount
+10,FS1,Fuse SMT - C1Q 3A,,1,Digikey,507-1082-1-ND,Bel Fuse Inc,C1Q 3,1206,Surface-Mount
+11,J1  J3  J4  J5  J6  J7  J8  J9  J10  J11  J12  J13,20020110-D021A01LF,,12,Digikey,609-3819-ND,FCI,20020110-D021A01LF,USER,Through-Hole
+12,L1,Ferrite Bead,,1,Digikey,732-3423-1-ND,Wurth Electronics Inc,74279224151,2220,Surface-Mount
+13,U3,AD5764RBSUZ,,1,Digikey,AD5764RBSUZ-ND,Analog Devices Inc,AD5764RBSUZ,TQFP-32,Surface-Mount
+14,U8,AD7606BSTZ,,1,Digikey,AD7606BSTZ-RLCT-ND,Analog Devices Inc,AD7606BSTZ,TQFP-64,Surface-Mount
+15,U9,ADP3338,,1,Digikey,ADP3338AKCZ-3.3RL7CT-ND,Analog Devices Inc,ADP3338AKCZ-3.3RL7,SOT223-3,Surface-Mount
+16,J2  J14,Tio Backplane connector,,2,Samtec,CLT-125-02-F-D,Samtec,CLT-125-02-F-D,USER,Surface-Mount
+17,U7,CMOD S6,,1,Digikey,ED3034-ND,On Shore Technology Inc,SA486000,USER,Through-Hole
+18,U1  U2  U4  U5,LM7171BIMX/NOPB,,4,Digikey,LM7171BIMX/NOPBCT-ND,Texas Instruments,LM7171BIMX/NOPB,SOIC-8,Surface-Mount
+19,R3  R4,Resistor,1.6K,2,Digikey,P1.60KHCT-ND,Panasonic Electronic Components,ERJ-3EKF1601V,603,Surface-Mount
+20,R1  R2,Resistor,5.1K,2,Digikey,P5.10KHCT-ND,Panasonic Electronic Components,ERJ-3EKF5101V,603,Surface-Mount
+21,R16  R17  R18  R19  R20  R21  R22  R23  R24  R25  R26  R28  R29  R30  R31  R32,Resistor,10R0,16,Digikey,P10.0CCT-ND,Panasonic Electronic Components,ERJ-6ENF10R0V,603,Surface-Mount
+22,R6  R7  R11  R13  R14  R15,Resistor,10K,6,Digikey,P10.0KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1002V,805,Surface-Mount
+23,R12  R27,Resistor,100R0,2,Digikey,P100CCT-ND,Panasonic Electronic Components,ERJ-6ENF1000V,805,Surface-Mount
+24,R5,Resistor,649R0,1,Digikey,P649HCT-ND,Panasonic Electronic Components,ERJ-3EKF6490V,603,Surface-Mount
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+,,,,116,,,,,,

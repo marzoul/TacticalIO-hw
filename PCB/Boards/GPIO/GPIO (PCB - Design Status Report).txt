@@ -1,0 +1,98 @@
+Design Status Report
+--------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\GPIO\GPIO (PCB - Design Status Report).txt
+Report Written : Wednesday, November 12, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\GPIO\GPIO.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\GPIO\GPIO.pcb
+Design Title   : 
+Created        : 9/17/2014 12:53:59 PM
+Last Saved     : 11/12/2014 10:44:36 PM
+Editing Time   : 1375 min
+Units          : mil (precision 1)
+
+
+Board Area
+==========
+
+    23305000.0 mil squared
+
+
+Layers
+======
+
+Name                Type           Side    Net
+----------------------------------------------
+Top Silkscreen      Silk Screen    Top
+Top Copper          Electrical     Top
+Documentation       Documentation  Top
+Top Solder Mask     Solder Mask    Top
+Top Paste Mask      Paste Mask     Top
+Power Plane         Electrical     Inner
+GND Plane           Electrical     Inner
+Bottom Copper       Electrical     Bottom
+Bottom Silkscreen   Silk Screen    Bottom
+Bottom Solder Mask  Solder Mask    Bottom
+Bottom Paste Mask   Paste Mask     Bottom
+
+Components
+==========
+
+Ref Name                     Package   Components  Pins
+-------------------------------------------------------
+20020110-D021A01LF           USER               1     2
+20020110-D081A01LF           USER               4    32
+ADP3338                      SOT223-3           1     4
+Capacitor                    0603              48    96
+Capacitor                    0805               4     8
+CMOD S6                      USER               1    48
+Fuse SMT - C1Q 3A            1206               1     2
+HCPL-0701-500E               SOIC-8            16   128
+LED                          0603               2     4
+Resistor                     0603             114   228
+Resistor                     0805               1     2
+SI8261ACC-C-IS               SOIC-8            16   128
+Tio BOT backplane connector  USER               1    50
+Tio TOP backplane connector  USER               1    50
+-------------------------------------------------------
+Total:                                        211   782
+-------------------------------------------------------
+
+Total Pin Count
+===============
+
+Free Pads:                             4
+Total PinCount:                        786
+
+
+Net List
+========
+
+Net Class  Nets  Track Length  Vias  Connections  Connection Length
+-------------------------------------------------------------------
+Signal     184       217904.0   153            0                0.0
+Power      4           8730.0     4            0                0.0
+Ground     1           8349.8    64            0                0.0
+-------------------------------------------------------------------
+Total:     189       234983.8   221            0                0.0
+-------------------------------------------------------------------
+
+Drill List
+==========
+
+Drill Diameter  Number of holes
+-------------------------------
+16.0                        200
+30.0                         48
+32.0                         21
+55.0                         34
+125.0                         4
+-------------------------------
+Total:                      307
+-------------------------------
+Total number of free pads 4.
+
+
+
+
+End Of Report.

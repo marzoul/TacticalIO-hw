@@ -1,0 +1,117 @@
+Design Status Report
+--------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\Cpu\Cpu (PCB - Design Status Report).txt
+Report Written : Tuesday, October 28, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\Cpu\Cpu.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\Cpu\Cpu.pcb
+Design Title   : 
+Created        : 9/17/2014 1:53:59 PM
+Last Saved     : 10/28/2014 9:01:33 PM
+Editing Time   : 2763 min
+Units          : mil (precision 1)
+
+
+Board Area
+==========
+
+    23305000.0 mil squared
+
+
+Layers
+======
+
+Name                Type           Side    Net
+----------------------------------------------
+Top Silkscreen      Silk Screen    Top
+Top Copper          Electrical     Top
+Documentation       Documentation  Top
+Top Solder Mask     Solder Mask    Top
+Top Paste Mask      Paste Mask     Top
+VCC Plane           Electrical     Inner
+GND Plane           Electrical     Inner
+Bottom Copper       Electrical     Bottom
+Bottom Silkscreen   Silk Screen    Bottom
+Bottom Solder Mask  Solder Mask    Bottom
+Bottom Paste Mask   Paste Mask     Bottom
+
+Components
+==========
+
+Ref Name                     Package      Components  Pins
+----------------------------------------------------------
+20020110-D021A01LF           USER                  1     2
+20020110-D031A01LF           USER                  2     6
+20020110-D061A01LF           USER                  1     6
+Battery holder - CR2032      BC2032-F1             1     2
+Capacitor                    0603                  9    18
+Capacitor                    0805                 12    24
+Capacitor                    1210                  1     2
+Capacitor                    1812                  2     4
+Capacitor Polarised          2917                  1     2
+CAT24C32                     SOIC-8                1     8
+CONN_SIL_2                   DSC                   1     2
+Diode                        SMC                   1     2
+Diode Schottky dual          DPAK                  1     3
+Fuse SMT - C1Q 1A            1206                  1     2
+Fuse SMT - C1Q 3A            1206                  1     2
+Fuse SMT - C1Q 7A            1206                  1     2
+HCPL-0701-500E               SOIC-8                4    32
+Inductor                     DR127-330-R           1     2
+LED                          0603                  1     2
+LM5576MHX/NOPB               HTSSOP-20EP           1    21
+PCF2127AT                    SO20                  1    20
+Relay SPDT - G2RL-1 DC5      G2RL-1                2    10
+Resistor                     0603                 16    32
+Resistor                     0805                 12    24
+Resistor                     2512                  1     2
+RPI B+ (FLIP)                USER                  1    44
+Tio TOP backplane connector  USER                  1    50
+ULN2803AFWG                  8-SOP                 1    18
+----------------------------------------------------------
+Total:                                            79   344
+----------------------------------------------------------
+
+Total Pin Count
+===============
+
+Free Pads:                             4
+Total PinCount:                        348
+
+
+Net List
+========
+
+Net Class  Nets  Track Length  Vias  Connections  Connection Length
+-------------------------------------------------------------------
+Signal     85        113006.4    77            0                0.0
+Power      2           1078.5     5            0                0.0
+Ground     1           5328.8    46            0                0.0
+-------------------------------------------------------------------
+Total:     88        119413.6   128            0                0.0
+-------------------------------------------------------------------
+
+Drill List
+==========
+
+Drill Diameter  Number of holes
+-------------------------------
+16.0                         89
+32.0                         39
+35.0                          2
+38.0                         39
+40.0                          1
+55.0                         14
+63.0                         10
+111.0                         4
+122.0                         1
+125.0                         3
+-------------------------------
+Total:                      202
+-------------------------------
+Total number of free pads 4.
+
+
+
+
+End Of Report.

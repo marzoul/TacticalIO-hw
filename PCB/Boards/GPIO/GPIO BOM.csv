@@ -1,0 +1,25 @@
+Index,Ref Des,Component,Value,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number,Package,Component Type
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+1,U18  U19  U20  U21  U22  U23  U24  U25  U26  U27  U28  U29  U30  U31  U32  U33,SI8261ACC-C-IS,,16,Digikey,336-2424-5-ND,Silicon Laboratories Inc,SI8261ACC-C-IS,SOIC-8,Surface-Mount
+2,C33,Capacitor,10uF,1,Digikey,445-11516-1-ND,TDK Corporation,C2012JB1V106K085AC,805,Surface-Mount
+3,D1  D2,LED,,2,Digikey,475-3118-1-ND,OSRAM opto Semiconductors Inc.,LG L29K-F2J1-24-Z,603,Surface-Mount
+4,C34,Capacitor,0.1uF,1,Digikey,490-4789-1-ND,Murata Electronics North America,GCM21BR72A104KA37L,805,Surface-Mount
+5,C51  C52,Capacitor,1uF,2,Digikey,490-5320-1-ND,Murata Electronics North America,GCM21BR7YA105KA55L,805,Surface-Mount
+6,FS1,Fuse SMT - C1Q 3A,,1,Digikey,507-1082-1-ND,Bel Fuse Inc,C1Q 3,1206,Surface-Mount
+7,U1  U2  U3  U4  U5  U6  U7  U8  U9  U10  U11  U12  U13  U14  U15  U16,HCPL-0701-500E,,16,Digikey,516-1488-1-ND,Avago Technologies US Inc.,HCPL-0701-500E,SOIC-8,Surface-Mount
+8,C1  C2  C3  C4  C5  C6  C7  C8  C9  C10  C11  C12  C13  C14  C15  C16  C17  C18  C19  C20  C21  C22  C23  C24  C25  C26  C27  C28  C29  C30  C31  C32  C35  C36  C37  C38  C39  C40  C41  C42  C43  C44  C45  C46  C47  C48  C49  C50,Capacitor,1uF,48,Digikey,587-2400-1-ND,Taiyo Yuden,UMK107BJ105KA-T,603,Surface-Mount
+9,J6,20020110-D021A01LF,,1,Digikey,609-3819-ND,FCI,20020110-D021A01LF,USER,Through-Hole
+10,J1  J3  J4  J5,20020110-D081A01LF,,4,Digikey,609-3825-ND,FCI,20020110-D081A01LF,USER,Through-Hole
+11,U34,ADP3338,,1,Digikey,ADP3338AKCZ-3.3RL7CT-ND,Analog Devices Inc,ADP3338AKCZ-3.3RL7,SOT223-3,Surface-Mount
+12,J2  J7,Tio Backplane connector,,2,Samtec,CLT-125-02-F-D,Samtec,CLT-125-02-F-D,USER,Surface-Mount
+13,R75  R76  R77  R78  R79  R80  R81  R82  R83  R84  R85  R86  R87  R88  R89  R90  R91  R92  R93  R94  R95  R96  R97  R98  R99  R100  R101  R102  R103  R104  R105  R106,Resistor,N/U,32,Do not use,Do not use,Do not use,Do not use,603,Surface-Mount
+14,R115,Resistor,N/U (0R0),1,Do not use,Do not use (0R0),Do not use,Do not use,805,Surface-Mount
+15,U17,CMOD S6,,1,Digikey,ED3034-ND,On Shore Technology Inc,SA486000,USER,Through-Hole
+16,R66,Resistor,1.6K,1,Digikey,P1.60KHCT-ND,Panasonic Electronic Components,ERJ-3EKF1601V,603,Surface-Mount
+17,R1  R3  R5  R7  R9  R11  R13  R15  R50  R52  R54  R56  R58  R60  R62  R64,Resistor,4K7,16,Digikey,P4.70KHCT-ND,Panasonic Electronic Components,ERJ-3EKF4701V,603,Surface-Mount
+18,R17  R18  R19  R20  R21  R22  R23  R24  R25  R26  R27  R28  R29  R30  R31  R32  R33  R34  R35  R36  R37  R38  R39  R40  R41  R42  R43  R44  R45  R46  R47  R48,Resistor,20K,32,Digikey,P20.0KHCT-ND,Panasonic Electronic Components,ERJ-3EKF2002V,603,Surface-Mount
+19,R2  R4  R6  R8  R10  R12  R14  R16  R49  R51  R53  R55  R57  R59  R61  R63,Resistor,51K,16,Digikey,P51.0KHCT-ND,Panasonic Electronic Components,ERJ-3EKF5102V,603,Surface-Mount
+20,R67  R68  R69  R70  R71  R72  R73  R74  R107  R108  R109  R110  R111  R112  R113  R114,Resistor,169R0,16,Digikey,P169HCT-ND,Panasonic Electronic Components,ERJ-3EKF1690V,603,Surface-Mount
+21,R65,Resistor,649R0,1,Digikey,P649HCT-ND,Panasonic Electronic Components,ERJ-3EKF6490V,603,Surface-Mount
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+,,,,211,,,,,,

@@ -1,0 +1,25 @@
+
+NET "clk" IOSTANDARD = LVTTL;
+
+
+NET "clk" LOC = N8;
+
+# PlanAhead Generated physical constraints 
+
+NET "led0" LOC = N3;
+NET "led1" LOC = P3;
+NET "led2" LOC = N4;
+NET "led3" LOC = P4;
+NET "sigtest" LOC = A3;
+NET "but0" LOC = P8;
+NET "but1" LOC = P9;
+
+# PlanAhead Generated IO constraints 
+
+NET "but1" IOSTANDARD = LVCMOS25;
+NET "but0" IOSTANDARD = LVCMOS25;
+NET "sigtest" IOSTANDARD = LVTTL;
+NET "led2" IOSTANDARD = LVTTL;
+NET "led0" IOSTANDARD = LVCMOS33;
+NET "led1" IOSTANDARD = LVTTL;
+NET "led3" IOSTANDARD = LVTTL;

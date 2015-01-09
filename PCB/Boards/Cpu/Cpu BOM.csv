@@ -1,0 +1,45 @@
+Index,Ref Des,Component,Value,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number,Package,Component Type
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+1,PL1,CONN_SIL_2,,1,Digikey,3M11970-ND,3M,929647-01-02-EU,DSC,Through-Hole
+2,C20  C23,Capacitor,330pF,2,Digikey,399-1131-1-ND,Kemet,C0805C331J1GACTU,805,Surface-Mount
+3,C18  C19,Capacitor,0.01uF,2,Digikey,399-1159-1-ND,Kemet,C0805C103K1RACTU,805,Surface-Mount
+4,C24,Capacitor Polarised,150uF,1,Digikey,399-4033-1-ND,Kement,T520D157M006ATE015,2917,Surface-Mount
+5,C21,Capacitor,0.47uF,1,Digikey,445-1353-1-ND,TDK Corporation,C2012X7R1E474K125AA,805,Surface-Mount
+6,C25,Capacitor,22uF,1,Digikey,445-3955-1-ND,TDK Corporation,C3225X7R1C226M250AC,1210,Surface-Mount
+7,D3,LED,,1,Digikey,475-3118-1-ND,OSRAM Opto Semiconductors Inc,LG L29K-F2J1-24-Z,603,Surface-Mount
+8,C22,Capacitor,0.022uF,1,Digikey,490-1658-1-ND,Murata Electronics North America,GRM21BR72A223KA01L,805,Surface-Mount
+9,C1  C2  C3  C4  C5  C6,Capacitor,0.1uF,6,Digikey,490-4789-1-ND,Murata Electronics North America,GCM21BR72A104KA37L,805,Surface-Mount
+10,D1,Diode Schottky dual,,1,Digikey,497-3208-1-ND,STMicroelectronics,STPS15H100CB-TR,DPAK,Surface-Mount
+11,FS2,Fuse SMT - C1Q 1A,,1,Digikey,507-1077-1-ND,Bel Fuse Inc,C1Q 1,1206,Surface-Mount
+12,FS3,Fuse SMT - C1Q 3A,,1,Digikey,507-1082-1-ND,Bel Fuse Inc,C1Q 3,1206,Surface-Mount
+13,FS1,Fuse SMT - C1Q 7A,,1,Digikey,507-1566-1-ND,Bel Fuse Inc,C1Q 7,1206,Surface-Mount
+14,L1,Inductor,33uH,1,Digikey,513-1047-1-ND,Eaton Bussmann,DR127-330-R,DR127-330-R,Surface-Mount
+15,U5  U6  U7  U8,HCPL-0701-500E,,4,Digikey,516-1488-1-ND,Avago Technologies US Inc.,HCPL-0701-500E,SOIC-8,Surface-Mount
+16,U3,PCF2127AT,,1,Digikey,568-10212-1-ND,NXP Semiconductors,PCF2127AT/2Y,SO20,Surface-Mount
+17,C16  C17,Capacitor,2.2uF,2,Digikey,587-1404-1-ND,Taiyo Yuden,HMK432B7225KM-T,1812,Surface-Mount
+18,C7  C8  C9  C10  C11  C12  C13  C14  C15,Capacitor,1uF,9,Digikey,587-2400-1-ND,Taiyo Yuden,UMK107BJ105KA-T,603,Surface-Mount
+19,J4,20020110-D021A01LF,,1,Digikey,609-3819-ND,FCI,20020110-D021A01LF,USER,Through-Hole
+20,J6  J7,20020110-D031A01LF,,2,Digikey,609-3820-ND,FCI,20020110-D031A01LF,USER,Through-Hole
+21,J3,20020110-D061A01LF,,1,Digikey,609-3823-ND,FCI,20020110-D061A01LF,USER,Through-Hole
+22,J2,Battery holder - CR2032,,1,Digikey,BC2032-F1-ND,MPD,BC2032-F1,BC2032-F1,Surface-Mount
+23,U2,CAT24C32,,1,Digikey,CAT24C32WI-GT3CT-ND,ON Semiconductor,CAT24C32WI-GT3,SOIC-8,Surface-Mount
+24,J1,Tio TOP backplane connector,,1,Samtec,CLT-125-02-F-D,Samtec,CLT-125-02-F-D,USER,Surface-Mount
+25,U1,RPI B+ (FLIP),,1,Samtec,ESW-120-48-G-D,Samtec,ESW-120-48-G-D,USER,Through-Hole
+26,RL1  RL2,Relay SPDT - G2RL-14 DC5,,2,Digikey,Z142-ND,Omron Electronics Inc-EMC Div,G2RL-14 DC5,,Through-Hole
+27,U9,LM5576MHX/NOPB,,1,Digikey,LM5576MHX/NOPBCT-ND,Texas Instruments,LM5576MHX/NOPB,HTSSOP-20EP,Surface-Mount
+28,R1,Resistor,1K,1,Digikey,P1.00KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1001V,805,Surface-Mount
+29,R24,Resistor,1.65K,1,Digikey,P1.65KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1651V,805,Surface-Mount
+30,R25,Resistor,2K,1,Digikey,P2.00KCCT-ND,Panasonic,RES 2K OHM 1/8W 1% 0805 SMD,805,Surface-Mount
+31,R2  R3  R4  R5,Resistor,3.9K,4,Digikey,P3.90KCCT-ND,Panasonic Electronic Components,ERJ-6ENF3901V,805,Surface-Mount
+32,R8  R9  R13  R14,Resistor,4K7,4,Digikey,P4.70KHCT-ND,Panasonic Electronic Components,ERJ-3EKF4701V,603,Surface-Mount
+33,R23,Resistor,5.11K,1,Digikey,P5.11KCCT-ND,Panasonic,ERJ-6ENF5111V,805,Surface-Mount
+34,R18  R19,Resistor,10K,2,Digikey,P10.0KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1002V,805,Surface-Mount
+35,R6  R7  R10  R11  R12  R15  R16  R17,Resistor,20K,8,Digikey,P20.0KHCT-ND,Panasonic Electronic Components,ERJ-3EKF2002V,603,Surface-Mount
+36,R21,Resistor,21K,1,digikey,P21.0KCCT-ND,Panasonic,ERJ-6ENF2102V,805,Surface-Mount
+37,R20,Resistor,49.9K,1,Digikey,P49.9KCCT-ND,Panasonic,ERJ-6ENF4992V,805,Surface-Mount
+38,R26  R27  R28  R29,Resistor,51K,4,Digikey,P51.0KHCT-ND,Panasonic Electronic Components,ERJ-3EKF5102V,603,Surface-Mount
+39,R22,Resistor,10R0,1,Digikey,PT10AECT-ND,Panasonic Electronic Components,ERJ-1TYF100U,2512,Surface-Mount
+40,D2,Diode,,1,Digikey,S8MCDICT-ND,Diodes Incorporated,S8MC-13,SMC,Surface-Mount
+41,U4,ULN2803AFWG,,1,Digikey,ULN2803AFWGCELCT-ND,Toshiba,TRANS 8 NPN DARL 50V 500MA 18SOL,8-SOP,Surface-Mount
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+,,,,79,,,,,,

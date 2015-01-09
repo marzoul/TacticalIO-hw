@@ -1,0 +1,9 @@
+# Logs
+logs
+*.log
+
+# objects
+*.o
+
+# sublime
+*sublime*

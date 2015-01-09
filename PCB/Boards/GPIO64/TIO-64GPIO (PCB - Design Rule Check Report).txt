@@ -1,0 +1,196 @@
+Design Rule Check Report
+------------------------
+
+Report File    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO (PCB - Design Rule Check Report).txt
+Report Written : Friday, December 19, 2014
+Project Path   : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO_REV1_03.prj
+Design Path    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO.pcb
+Design Title   : 
+Created        : 9/17/2014 7:53:59 PM
+Last Saved     : 12/19/2014 7:38:08 PM
+Editing Time   : 12326 min
+Units          : mm (precision 1)
+
+
+Results
+=======
+
+Dangling Track from (37.7,64.4) to (37.7,64.1) on layer GND
+Dangling Track from (117.7,64.4) to (117.7,64.1) on layer GND
+Dangling Track from (42.4,32.5) to (42.4,32.6) on layer GND
+Dangling Track from (50.3,32.3) to (50.4,32.2) on layer GND
+Dangling Track from (58.4,32.5) to (58.3,32.5) on layer GND
+Dangling Track from (137.6,10.1) to (137.6,10.3) on layer GND
+Dangling Track from (49.4,22.5) to (49.3,22.7) on layer Power
+Dangling Track from (64.0,50.2) to (63.9,50.1) on layer GND
+Dangling Track from (34.6,50.2) to (34.5,50.3) on layer GND
+Dangling Track from (94.1,50.3) to (94.1,50.2) on layer GND
+Dangling Track from (123.5,50.6) to (123.8,50.1) on layer GND
+Dangling Track from (18.5,53.2) to (18.4,53.2) on layer Bottom Copper
+Dangling Track from (48.4,53.2) to (48.4,53.0) on layer Bottom Copper
+Dangling Track from (78.1,52.9) to (78.0,52.7) on layer Bottom Copper
+Dangling Track from (77.7,50.3) to (78.1,50.6) on layer Bottom Copper
+Dangling Track from (108.4,52.7) to (108.1,52.8) on layer Bottom Copper
+Dangling Track from (146.8,10.0) to (146.8,9.9) on layer Bottom Copper
+Dangling Track from (19.9,32.6) to (20.0,32.6) on layer Bottom Copper
+Dangling Track from (139.0,32.1) to (140.6,32.1) on layer Bottom Copper
+Dangling Track from (138.9,36.1) to (138.9,36.0) on layer Bottom Copper
+Dangling Track from (139.1,64.1) to (139.0,64.0) on layer Bottom Copper
+Dangling Track from (138.8,68.1) to (138.8,68.0) on layer Bottom Copper
+Dangling Track from (139.3,38.1) to (139.3,38.1) on layer Top Copper
+Dangling Track from (134.7,41.7) to (134.8,41.7) on layer Top Copper
+Dangling Track from (21.2,62.6) to (21.2,62.5) on layer Bottom Copper
+Dangling Track from (23.1,62.5) to (23.0,62.5) on layer Bottom Copper
+Dangling Track from (35.0,62.3) to (34.9,62.3) on layer Bottom Copper
+Dangling Track from (37.1,61.9) to (37.0,62.0) on layer Bottom Copper
+Dangling Track from (84.6,62.8) to (84.6,62.7) on layer Bottom Copper
+Dangling Track from (78.4,49.2) to (78.6,49.1) on layer Bottom Copper
+Dangling Track from (76.9,47.5) to (76.9,47.4) on layer Bottom Copper
+Dangling Track from (100.5,62.5) to (100.5,62.4) on layer Bottom Copper
+Dangling Track from (101.9,62.1) to (101.8,62.1) on layer Bottom Copper
+Dangling Track from (77.9,44.7) to (78.0,44.8) on layer Bottom Copper
+Dangling Track from (117.3,62.3) to (117.1,62.4) on layer Top Copper
+Dangling Track from (46.0,47.5) to (46.0,47.4) on layer Bottom Copper
+Dangling Track from (46.1,48.6) to (46.1,48.4) on layer Bottom Copper
+Dangling Track from (47.3,48.8) to (47.2,48.8) on layer Bottom Copper
+Dangling Track from (48.5,49.4) to (48.4,49.5) on layer Bottom Copper
+Dangling Track from (29.0,45.3) to (29.1,45.4) on layer Bottom Copper
+Dangling Track from (39.4,37.0) to (39.2,36.4) on layer Top Copper
+Dangling Track from (12.3,85.7) to (12.3,85.7) on layer Bottom Copper
+Dangling Track from (10.0,68.7) to (9.9,68.7) on layer Power
+Dangling Track from (10.0,73.7) to (10.1,73.7) on layer Power
+Dangling Track from (10.2,78.0) to (10.2,78.1) on layer Power
+Dangling Track from (28.3,85.9) to (28.4,85.9) on layer Power
+Dangling Track from (44.3,85.8) to (44.3,86.0) on layer Power
+Dangling Track from (60.3,86.0) to (60.2,86.0) on layer Power
+Dangling Track from (76.3,85.6) to (76.4,85.8) on layer Power
+Dangling Track from (92.3,86.0) to (92.3,85.8) on layer Power
+Dangling Track from (108.3,85.5) to (108.3,85.4) on layer Power
+Dangling Track from (124.3,86.1) to (124.3,86.0) on layer Power
+Dangling Track from (8.3,14.8) to (8.3,14.9) on layer Power
+Dangling Track from (16.3,14.7) to (16.5,14.7) on layer Power
+Dangling Track from (13.5,13.2) to (13.6,13.2) on layer Power
+Dangling Track from (21.4,13.2) to (21.2,13.2) on layer Power
+Dangling Track from (24.6,14.2) to (24.8,14.3) on layer Power
+Dangling Track from (29.4,13.1) to (29.4,12.8) on layer Power
+Dangling Track from (32.5,14.8) to (32.5,14.9) on layer Power
+Dangling Track from (37.4,13.2) to (37.6,13.2) on layer Power
+Dangling Track from (40.5,14.3) to (40.7,14.2) on layer Power
+Dangling Track from (48.4,14.3) to (48.5,14.5) on layer Power
+Dangling Track from (45.3,13.0) to (45.4,12.9) on layer Power
+Dangling Track from (53.3,13.0) to (53.4,13.0) on layer Power
+Dangling Track from (56.5,14.4) to (56.7,14.5) on layer Power
+Dangling Track from (61.3,13.0) to (61.4,13.0) on layer Power
+Dangling Track from (64.5,14.2) to (64.6,14.2) on layer Power
+Dangling Track from (69.3,13.1) to (69.5,13.1) on layer Power
+Dangling Track from (72.1,14.7) to (72.3,14.6) on layer Power
+Dangling Track from (79.2,14.5) to (79.1,14.5) on layer Power
+Dangling Track from (84.3,13.0) to (84.4,13.0) on layer Power
+Dangling Track from (87.4,14.6) to (87.5,14.7) on layer Power
+Dangling Track from (92.3,12.9) to (92.3,12.8) on layer Power
+Dangling Track from (95.3,14.6) to (95.3,14.7) on layer Power
+Dangling Track from (100.2,12.9) to (100.4,12.8) on layer Power
+Dangling Track from (103.3,14.7) to (103.5,14.9) on layer Power
+Dangling Track from (108.3,12.7) to (108.2,12.8) on layer Power
+Dangling Track from (111.3,14.6) to (111.2,14.6) on layer Power
+Dangling Track from (116.3,13.0) to (116.3,13.2) on layer Power
+Dangling Track from (119.4,14.3) to (119.4,14.5) on layer Power
+Dangling Track from (124.2,12.9) to (124.1,12.8) on layer Power
+Dangling Track from (127.3,14.8) to (127.4,14.6) on layer Power
+Dangling Track from (132.4,12.9) to (132.3,12.9) on layer Power
+Dangling Track from (134.5,23.0) to (134.5,22.9) on layer Power
+Dangling Track from (126.4,23.3) to (126.5,23.4) on layer Power
+Dangling Track from (118.2,23.1) to (118.3,23.1) on layer Power
+Dangling Track from (110.3,23.1) to (110.2,23.3) on layer Power
+Dangling Track from (102.4,23.1) to (102.4,23.2) on layer Power
+Dangling Track from (94.5,23.1) to (94.5,23.2) on layer Power
+Dangling Track from (86.3,23.3) to (86.3,23.2) on layer Power
+Dangling Track from (78.5,23.1) to (78.5,23.2) on layer Power
+Dangling Track from (71.3,23.2) to (71.4,23.0) on layer Power
+Dangling Track from (63.3,23.2) to (63.6,23.0) on layer Power
+Dangling Track from (55.3,23.1) to (55.4,23.0) on layer Power
+Dangling Track from (47.4,23.3) to (47.5,23.2) on layer Power
+Dangling Track from (39.4,23.1) to (39.5,23.1) on layer Power
+Dangling Track from (31.3,23.2) to (31.5,23.1) on layer Power
+Dangling Track from (23.3,23.1) to (23.3,22.8) on layer Power
+Dangling Track from (15.3,22.9) to (15.3,23.0) on layer Power
+Dangling Track from (76.4,13.0) to (76.4,12.9) on layer Bottom Copper
+Dangling Track from (10.3,12.8) to (10.3,12.9) on layer Bottom Copper
+Dangling Track from (18.4,12.9) to (18.3,12.9) on layer Bottom Copper
+Dangling Track from (26.3,12.8) to (26.2,12.7) on layer Bottom Copper
+Dangling Track from (34.5,12.8) to (34.4,12.8) on layer Bottom Copper
+Dangling Track from (42.3,12.7) to (42.2,12.8) on layer Bottom Copper
+Dangling Track from (50.2,12.7) to (50.1,12.8) on layer Bottom Copper
+Dangling Track from (58.4,12.8) to (58.3,12.8) on layer Bottom Copper
+Dangling Track from (66.4,13.2) to (66.3,13.2) on layer Bottom Copper
+Dangling Track from (81.3,12.8) to (81.2,12.8) on layer Bottom Copper
+Dangling Track from (89.1,12.7) to (89.0,12.8) on layer Bottom Copper
+Dangling Track from (73.3,12.7) to (73.3,12.8) on layer Bottom Copper
+Dangling Track from (105.2,12.5) to (105.1,12.4) on layer Bottom Copper
+Dangling Track from (97.1,12.6) to (97.0,12.6) on layer Bottom Copper
+Dangling Track from (121.3,12.7) to (121.3,12.8) on layer Bottom Copper
+Dangling Track from (130.4,24.7) to (130.3,24.6) on layer Bottom Copper
+Dangling Track from (122.4,24.7) to (122.2,24.7) on layer Bottom Copper
+Dangling Track from (114.4,24.7) to (114.3,24.8) on layer Bottom Copper
+Dangling Track from (106.4,24.7) to (106.1,24.7) on layer Bottom Copper
+Dangling Track from (98.4,24.7) to (98.3,24.7) on layer Bottom Copper
+Dangling Track from (90.4,24.7) to (90.5,24.8) on layer Bottom Copper
+Dangling Track from (81.7,24.7) to (81.7,24.8) on layer Bottom Copper
+Dangling Track from (74.7,24.7) to (74.6,24.7) on layer Bottom Copper
+Dangling Track from (67.4,24.8) to (67.5,24.9) on layer Bottom Copper
+Dangling Track from (59.5,24.9) to (59.4,25.0) on layer Bottom Copper
+Dangling Track from (51.5,24.8) to (51.5,24.9) on layer Bottom Copper
+Dangling Track from (43.4,25.0) to (43.2,25.1) on layer Bottom Copper
+Dangling Track from (35.4,25.0) to (35.3,25.1) on layer Bottom Copper
+Dangling Track from (27.3,25.0) to (27.0,25.0) on layer Bottom Copper
+Dangling Track from (19.4,25.0) to (19.3,24.9) on layer Bottom Copper
+Dangling Track from (129.0,12.4) to (129.0,12.3) on layer Bottom Copper
+Dangling Track from (113.1,12.8) to (113.1,12.6) on layer Bottom Copper
+
+Number of errors found : 131
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks         Yes
+Pads and Vias  Yes
+Shapes         Yes
+Text           Yes
+Board          Yes
+Drills         Yes
+Components     No
+
+
+Manufacturing
+
+==============
+
+Drill Breakout                   No
+Drill Backoff                    No
+Silkscreen Overlap               No
+Copper Text In Board             No
+Min Track Width                  No
+Min Annular Ring                 No
+Min Paste Size                   No
+Vias In Pads                     No
+Unplated Vias                    No
+Unplated Pads With Inner Tracks  No
+
+
+Nets
+
+=====
+
+Net Completion                Yes
+Dangling Tracks               Yes
+Net Track Length Differences  No
+
+
+
+End Of Report.

@@ -1,0 +1,22 @@
+Schematic and PCB Check Report
+------------------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM (PCB - Schematic and PCB Check Report).txt
+Report Written : Friday, December 19, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.pcb
+Design Title   : 
+Created        : 9/17/2014 12:53:59 PM
+Last Saved     : 11/12/2014 11:13:12 PM
+Editing Time   : 2362 min
+Units          : mil (precision 1)
+
+
+Checking integrity of Schematic "D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.prj" with PCB "D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.pcb"
+============================================================================================================================================================
+
+
+Warning: Project has more than one version of Component "Resistor" ("Tio Backplane.sch" & "Supply.sch"). At least one should be reloaded otherwise results may be incorrect.
+
+
+End Of Report.

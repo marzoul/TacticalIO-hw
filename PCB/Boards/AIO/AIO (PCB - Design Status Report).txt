@@ -1,0 +1,99 @@
+Design Status Report
+--------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO (PCB - Design Status Report).txt
+Report Written : Wednesday, November 12, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO.pcb
+Design Title   : 
+Created        : 9/17/2014 12:53:59 PM
+Last Saved     : 11/12/2014 10:31:23 PM
+Editing Time   : 1333 min
+Units          : mil (precision 1)
+
+
+Board Area
+==========
+
+    23305000.0 mil squared
+
+
+Layers
+======
+
+Name                Type           Side    Net
+----------------------------------------------
+Top Silkscreen      Silk Screen    Top
+Top Copper          Electrical     Top
+Documentation       Documentation  Top
+Top Solder Mask     Solder Mask    Top
+Top Paste Mask      Paste Mask     Top
+Power Plane         Electrical     Inner
+GND Plane           Electrical     Inner
+Bottom Copper       Electrical     Bottom
+Bottom Silkscreen   Silk Screen    Bottom
+Bottom Solder Mask  Solder Mask    Bottom
+Bottom Paste Mask   Paste Mask     Bottom
+
+Components
+==========
+
+Ref Name                     Package        Components  Pins
+------------------------------------------------------------
+20020110-D021A01LF           USER                   12    24
+AD5764RBSUZ                  TQFP-32                 1    32
+AD7606BSTZ                   TQFP-64                 1    64
+ADP3338                      SOT223-3                1     4
+Capacitor                    0805                   53   106
+CC10-0512DR-E                CC10-0512DR-E           1     7
+CMOD S6                      USER                    1    48
+Ferrite Bead                 2220                    1     2
+Fuse SMT - C1Q 3A            1206                    1     2
+LED                          0603                    5    10
+LM7171BIMX/NOPB              SOIC-8                  4    32
+Resistor                     0603                   21    42
+Resistor                     0805                   12    24
+Tio BOT backplane connector  USER                    1    50
+Tio TOP backplane connector  USER                    1    50
+------------------------------------------------------------
+Total:                                             116   497
+------------------------------------------------------------
+
+Total Pin Count
+===============
+
+Free Pads:                             4
+Total PinCount:                        501
+
+
+Net List
+========
+
+Net Class  Nets  Track Length  Vias  Connections  Connection Length
+-------------------------------------------------------------------
+Signal     108       154035.9    74            0                0.0
+Power      5          16476.9    20            0                0.0
+Ground     1          11373.0    79            0                0.0
+-------------------------------------------------------------------
+Total:     114       181885.7   173            0                0.0
+-------------------------------------------------------------------
+
+Drill List
+==========
+
+Drill Diameter  Number of holes
+-------------------------------
+16.0                        138
+30.0                         48
+32.0                         35
+55.0                         24
+125.0                         4
+-------------------------------
+Total:                      249
+-------------------------------
+Total number of free pads 4.
+
+
+
+
+End Of Report.

@@ -1,0 +1,65 @@
+Design Rule Check Report
+------------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO (PCB - Design Rule Check Report).txt
+Report Written : Wednesday, November 12, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\AIO\AIO.pcb
+Design Title   : 
+Created        : 9/17/2014 12:53:59 PM
+Last Saved     : 11/12/2014 10:31:23 PM
+Editing Time   : 1332 min
+Units          : mil (precision 1)
+
+
+Results
+=======
+
+
+No errors found
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks         Yes
+Pads and Vias  Yes
+Shapes         Yes
+Text           Yes
+Board          Yes
+Drills         Yes
+Components     No
+
+
+Manufacturing
+
+==============
+
+Drill Breakout                   No
+Drill Backoff                    No
+Silkscreen Overlap               No
+Copper Text In Board             No
+Min Track Width                  No
+Min Annular Ring                 No
+Min Paste Size                   No
+Vias In Pads                     No
+Unplated Vias                    No
+Unplated Pads With Inner Tracks  No
+
+
+Nets
+
+=====
+
+Net Completion                Yes
+Dangling Tracks               Yes
+Net Track Length Differences  No
+
+
+
+End Of Report.

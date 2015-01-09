@@ -1,0 +1,110 @@
+Design Status Report
+--------------------
+
+Report File    : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM (PCB - Design Status Report).txt
+Report Written : Wednesday, November 12, 2014
+Project Path   : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.prj
+Design Path    : D:\git\opentekhnia\Tio\PCB\Tio Card\FSK-COM\FSK-COM.pcb
+Design Title   : 
+Created        : 9/17/2014 12:53:59 PM
+Last Saved     : 11/12/2014 11:00:33 PM
+Editing Time   : 2357 min
+Units          : mil (precision 1)
+
+
+Board Area
+==========
+
+    23305000.0 mil squared
+
+
+Layers
+======
+
+Name                Type           Side    Net
+----------------------------------------------
+Top Silkscreen      Silk Screen    Top
+Top Copper          Electrical     Top
+Documentation       Documentation  Top
+Top Solder Mask     Solder Mask    Top
+Top Paste Mask      Paste Mask     Top
+Power Plane         Electrical     Inner
+GND Plane           Electrical     Inner
+Bottom Copper       Electrical     Bottom
+Bottom Silkscreen   Silk Screen    Bottom
+Bottom Solder Mask  Solder Mask    Bottom
+Bottom Paste Mask   Paste Mask     Bottom
+
+Components
+==========
+
+Ref Name                      Package                  Components  Pins
+-----------------------------------------------------------------------
+AD9854ASTZ                    LQFP-80                           1    80
+ADP3338                       SOT223-3                          2     8
+Capacitor                     0805                             81   162
+CC10-0512DR-E                 CC10-0512DR-E                     1     7
+CMOD S6                       USER                              1    48
+CONN SMA JACK R/A 50 OHM PCB  5-1814400-1                       5    25
+CONN_SIL_2                    DSC                               4     8
+DB9 Right angle connector     SDS107-PRW1-M09-SN63-11           2    22
+Fuse SMT - C1Q 3A             1206                              1     2
+Inductor                      0805                              6    12
+LED                           0603                              5    10
+LM7171BIMX/NOPB               SOIC-8                            2    16
+MAX3107                       SSOP-34                           2    48
+MAX3160                       SSOP-20                           2    40
+MC100LVEL16DG                 SOIC 8                            1     8
+Oscillator                    SOJ-4                             1     4
+Resistor                      0603                              5    10
+Resistor                      0805                             28    56
+Resistor                      2512                              4     8
+Tio BOT backplane connector   USER                              1    50
+Tio TOP backplane connector   USER                              1    50
+XTAL                          HC49 US                           2     4
+-----------------------------------------------------------------------
+Total:                                                        158   678
+-----------------------------------------------------------------------
+
+Total Pin Count
+===============
+
+Free Pads:                             4
+Total PinCount:                        682
+
+
+Net List
+========
+
+Net Class  Nets  Track Length  Vias  Connections  Connection Length
+-------------------------------------------------------------------
+Signal     146       132305.6    54            0                0.0
+Power      9          22817.9    49            0                0.0
+Ground     1          15804.7    92            0                0.0
+-------------------------------------------------------------------
+Total:     156       170928.2   195            0                0.0
+-------------------------------------------------------------------
+
+Drill List
+==========
+
+Drill Diameter  Number of holes
+-------------------------------
+16.0                        163
+30.0                         48
+32.0                         32
+35.0                          8
+37.0                         18
+45.0                          5
+52.0                         20
+110.0                         4
+125.0                         4
+-------------------------------
+Total:                      302
+-------------------------------
+Total number of free pads 4.
+
+
+
+
+End Of Report.

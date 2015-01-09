@@ -1,0 +1,16 @@
+# Output products list for <counter_32bits>
+_xmsgs\pn_parser.xmsgs
+core_resources.txt
+counter_32bits.asy
+counter_32bits.gise
+counter_32bits.ngc
+counter_32bits.vhd
+counter_32bits.vho
+counter_32bits.xco
+counter_32bits.xise
+counter_32bits\doc\c_counter_binary_v11_0_readme.txt
+counter_32bits\doc\c_counter_binary_v11_0_vinfo.html
+counter_32bits\doc\ds215_counter.pdf
+counter_32bits_flist.txt
+counter_32bits_xmdf.tcl
+gui_latency.txt

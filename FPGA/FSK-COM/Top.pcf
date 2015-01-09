@@ -1,0 +1,554 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri Dec 12 19:13:58 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "UART1_CLK" LOCATE = SITE "F1" LEVEL 1;
+COMP "UART2_CLK" LOCATE = SITE "F2" LEVEL 1;
+COMP "UART1_SCK" LOCATE = SITE "G1" LEVEL 1;
+COMP "UART2_SCK" LOCATE = SITE "L14" LEVEL 1;
+COMP "UART1_MISO" LOCATE = SITE "K13" LEVEL 1;
+COMP "CS" LOCATE = SITE "E14" LEVEL 1;
+COMP "UART1_MOSI" LOCATE = SITE "H2" LEVEL 1;
+COMP "UART2_MISO" LOCATE = SITE "K1" LEVEL 1;
+COMP "UART2_MOSI" LOCATE = SITE "L13" LEVEL 1;
+COMP "UART1_N_CS" LOCATE = SITE "J14" LEVEL 1;
+COMP "UART2_N_CS" LOCATE = SITE "J2" LEVEL 1;
+COMP "UART1_LDOEN" LOCATE = SITE "G2" LEVEL 1;
+COMP "UART2_LDOEN" LOCATE = SITE "K2" LEVEL 1;
+COMP "SCK" LOCATE = SITE "B1" LEVEL 1;
+COMP "UART1_N_IRQ" LOCATE = SITE "J13" LEVEL 1;
+COMP "UART1_N_RST" LOCATE = SITE "H1" LEVEL 1;
+COMP "UART2_N_IRQ" LOCATE = SITE "J1" LEVEL 1;
+COMP "UART2_N_RST" LOCATE = SITE "K14" LEVEL 1;
+COMP "DDS_IO_UD_CLK" LOCATE = SITE "N12" LEVEL 1;
+COMP "SYNC_CLK" LOCATE = SITE "D13" LEVEL 1;
+COMP "MISO" LOCATE = SITE "E13" LEVEL 1;
+COMP "MOSI" LOCATE = SITE "A2" LEVEL 1;
+COMP "FAULT" LOCATE = SITE "C13" LEVEL 1;
+COMP "BTN_0" LOCATE = SITE "P8" LEVEL 1;
+COMP "LED_0" LOCATE = SITE "N3" LEVEL 1;
+COMP "BTN_1" LOCATE = SITE "P9" LEVEL 1;
+COMP "LED_1" LOCATE = SITE "P3" LEVEL 1;
+COMP "LED_2" LOCATE = SITE "N4" LEVEL 1;
+COMP "LED_3" LOCATE = SITE "P4" LEVEL 1;
+COMP "RESET" LOCATE = SITE "A3" LEVEL 1;
+COMP "DDS_FPGA_CLK" LOCATE = SITE "P5" LEVEL 1;
+COMP "SYNC_RESET" LOCATE = SITE "B3" LEVEL 1;
+COMP "SPARE1" LOCATE = SITE "D1" LEVEL 1;
+COMP "SPARE2" LOCATE = SITE "F13" LEVEL 1;
+COMP "SPARE3" LOCATE = SITE "D2" LEVEL 1;
+COMP "SPARE4" LOCATE = SITE "F14" LEVEL 1;
+COMP "SPARE5" LOCATE = SITE "E1" LEVEL 1;
+COMP "SPARE6" LOCATE = SITE "H13" LEVEL 1;
+COMP "SPARE7" LOCATE = SITE "E2" LEVEL 1;
+COMP "SPARE8" LOCATE = SITE "H14" LEVEL 1;
+COMP "DDS_IO_RESET" LOCATE = SITE "N6" LEVEL 1;
+COMP "DDS_FSK_BPSK_HOLD" LOCATE = SITE "L2" LEVEL 1;
+COMP "DDS_MASTER_RESET" LOCATE = SITE "N5" LEVEL 1;
+COMP "CLK_8MHZ" LOCATE = SITE "N8" LEVEL 1;
+COMP "DDS_SCLK" LOCATE = SITE "M2" LEVEL 1;
+COMP "DDS_SDIO" LOCATE = SITE "P12" LEVEL 1;
+COMP "DDS_N_CS" LOCATE = SITE "M1" LEVEL 1;
+COMP "CSMUX<0>" LOCATE = SITE "G13" LEVEL 1;
+COMP "CSMUX<1>" LOCATE = SITE "C1" LEVEL 1;
+COMP "CSMUX<2>" LOCATE = SITE "G14" LEVEL 1;
+COMP "DDS_SDO" LOCATE = SITE "P7" LEVEL 1;
+COMP "DDS_OSK" LOCATE = SITE "L1" LEVEL 1;
+COMP "BUS_CLK" LOCATE = SITE "D14" LEVEL 1;
+PIN CLK1/clkout1_buf_pin<1> = BEL "CLK1/clkout1_buf" PINNAME O;
+PIN "CLK1/clkout1_buf_pin<1>" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN CLK0/clkout1_buf_pin<1> = BEL "CLK0/clkout1_buf" PINNAME O;
+PIN "CLK0/clkout1_buf_pin<1>" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN CLK1/pll_base_inst/PLL_ADV_pins<2> = BEL "CLK1/pll_base_inst/PLL_ADV"
+        PINNAME CLKIN1;
+PIN
+        U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram_pins<26>
+        = BEL
+        "U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram_pins<27>
+        = BEL
+        "U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram"
+        PINNAME CLKBRDCLK;
+TIMEGRP CLK = BEL "U0/counter_s_0" BEL "U0/counter_s_1" BEL "U0/counter_s_2"
+        BEL "U0/counter_s_3" BEL "U0/counter_s_4" BEL "U0/counter_s_5" BEL
+        "U0/counter_s_6" BEL "U0/counter_s_7" BEL "U0/counter_s_8" BEL
+        "U0/counter_s_9" BEL "U0/counter_s_10" BEL "U0/counter_s_11" BEL
+        "U0/counter_s_12" BEL "U0/counter_s_13" BEL "U0/counter_s_14" BEL
+        "U0/counter_s_15" BEL "U0/counter_s_16" BEL "U0/counter_s_17" BEL
+        "U0/counter_s_18" BEL "U0/counter_s_19" BEL "U0/counter_s_20" BEL
+        "U0/counter_s_21" BEL "U0/counter_s_22" BEL "U0/counter_s_23" BEL
+        "U0/counter_s_24" BEL "CLK1/clkin1_buf" BEL "U2/state_s_FSM_FFd2" BEL
+        "U2/state_s_FSM_FFd1" BEL "U2/command_s_7" BEL "U2/command_s_6" BEL
+        "U2/command_s_5" BEL "U2/command_s_4" BEL "U2/command_s_3" BEL
+        "U2/command_s_2" BEL "U2/command_s_1" BEL "U2/command_s_0" BEL
+        "U2/byte_tx_s_7" BEL "U2/byte_tx_s_6" BEL "U2/byte_tx_s_5" BEL
+        "U2/byte_tx_s_4" BEL "U2/byte_tx_s_3" BEL "U2/byte_tx_s_2" BEL
+        "U2/byte_tx_s_1" BEL "U2/byte_tx_s_0" BEL "U2/cs_d_s_2" BEL
+        "U2/cs_falling_edge_s" BEL "U2/U2/dds_state_s_FSM_FFd2" BEL
+        "U2/U2/dds_state_s_FSM_FFd3" BEL "U2/U2/dds_state_s_FSM_FFd1" BEL
+        "U2/U2/dds_state_s_FSM_FFd4" BEL "U2/U2/dds_spi_master_en_s" BEL
+        "U2/U2/dds_spi_master_tx_data_s_16" BEL
+        "U2/U2/dds_spi_master_tx_data_s_11" BEL
+        "U2/U2/dds_spi_master_tx_data_s_10" BEL
+        "U2/U2/dds_spi_master_tx_data_s_9" BEL
+        "U2/U2/dds_spi_master_tx_data_s_8" BEL
+        "U2/U2/dds_spi_master_tx_data_s_7" BEL
+        "U2/U2/dds_spi_master_tx_data_s_6" BEL
+        "U2/U2/dds_spi_master_tx_data_s_5" BEL
+        "U2/U2/dds_spi_master_tx_data_s_4" BEL
+        "U2/U2/dds_spi_master_tx_data_s_3" BEL
+        "U2/U2/dds_spi_master_tx_data_s_2" BEL
+        "U2/U2/dds_spi_master_tx_data_s_1" BEL
+        "U2/U2/dds_spi_master_tx_data_s_0" BEL "U2/U2/dds_time_to_send_s" BEL
+        "U2/U2/dds_ram_last_byte_s" BEL "U2/U2/MISO_SRC_SEL_1" BEL
+        "U2/U2/MISO_SRC_SEL_0" BEL "U2/U2/BYTE_TX_7" BEL "U2/U2/BYTE_TX_6" BEL
+        "U2/U2/BYTE_TX_5" BEL "U2/U2/BYTE_TX_4" BEL "U2/U2/BYTE_TX_3" BEL
+        "U2/U2/BYTE_TX_2" BEL "U2/U2/BYTE_TX_1" BEL "U2/U2/BYTE_TX_0" BEL
+        "U2/U2/fsk_stop_time_s_31" BEL "U2/U2/fsk_stop_time_s_30" BEL
+        "U2/U2/fsk_stop_time_s_29" BEL "U2/U2/fsk_stop_time_s_28" BEL
+        "U2/U2/fsk_stop_time_s_27" BEL "U2/U2/fsk_stop_time_s_26" BEL
+        "U2/U2/fsk_stop_time_s_25" BEL "U2/U2/fsk_stop_time_s_24" BEL
+        "U2/U2/fsk_stop_time_s_23" BEL "U2/U2/fsk_stop_time_s_22" BEL
+        "U2/U2/fsk_stop_time_s_21" BEL "U2/U2/fsk_stop_time_s_20" BEL
+        "U2/U2/fsk_stop_time_s_19" BEL "U2/U2/fsk_stop_time_s_18" BEL
+        "U2/U2/fsk_stop_time_s_17" BEL "U2/U2/fsk_stop_time_s_16" BEL
+        "U2/U2/fsk_stop_time_s_15" BEL "U2/U2/fsk_stop_time_s_14" BEL
+        "U2/U2/fsk_stop_time_s_13" BEL "U2/U2/fsk_stop_time_s_12" BEL
+        "U2/U2/fsk_stop_time_s_11" BEL "U2/U2/fsk_stop_time_s_10" BEL
+        "U2/U2/fsk_stop_time_s_9" BEL "U2/U2/fsk_stop_time_s_8" BEL
+        "U2/U2/fsk_stop_time_s_7" BEL "U2/U2/fsk_stop_time_s_6" BEL
+        "U2/U2/fsk_stop_time_s_5" BEL "U2/U2/fsk_stop_time_s_4" BEL
+        "U2/U2/fsk_stop_time_s_3" BEL "U2/U2/fsk_stop_time_s_2" BEL
+        "U2/U2/fsk_stop_time_s_1" BEL "U2/U2/fsk_stop_time_s_0" BEL
+        "U2/U2/uart2_time_s_31" BEL "U2/U2/uart2_time_s_30" BEL
+        "U2/U2/uart2_time_s_29" BEL "U2/U2/uart2_time_s_28" BEL
+        "U2/U2/uart2_time_s_27" BEL "U2/U2/uart2_time_s_26" BEL
+        "U2/U2/uart2_time_s_25" BEL "U2/U2/uart2_time_s_24" BEL
+        "U2/U2/uart2_time_s_23" BEL "U2/U2/uart2_time_s_22" BEL
+        "U2/U2/uart2_time_s_21" BEL "U2/U2/uart2_time_s_20" BEL
+        "U2/U2/uart2_time_s_19" BEL "U2/U2/uart2_time_s_18" BEL
+        "U2/U2/uart2_time_s_17" BEL "U2/U2/uart2_time_s_16" BEL
+        "U2/U2/uart2_time_s_15" BEL "U2/U2/uart2_time_s_14" BEL
+        "U2/U2/uart2_time_s_13" BEL "U2/U2/uart2_time_s_12" BEL
+        "U2/U2/uart2_time_s_11" BEL "U2/U2/uart2_time_s_10" BEL
+        "U2/U2/uart2_time_s_9" BEL "U2/U2/uart2_time_s_8" BEL
+        "U2/U2/uart2_time_s_7" BEL "U2/U2/uart2_time_s_6" BEL
+        "U2/U2/uart2_time_s_5" BEL "U2/U2/uart2_time_s_4" BEL
+        "U2/U2/uart2_time_s_3" BEL "U2/U2/uart2_time_s_2" BEL
+        "U2/U2/uart2_time_s_1" BEL "U2/U2/uart2_time_s_0" BEL
+        "U2/U2/uart1_time_s_31" BEL "U2/U2/uart1_time_s_30" BEL
+        "U2/U2/uart1_time_s_29" BEL "U2/U2/uart1_time_s_28" BEL
+        "U2/U2/uart1_time_s_27" BEL "U2/U2/uart1_time_s_26" BEL
+        "U2/U2/uart1_time_s_25" BEL "U2/U2/uart1_time_s_24" BEL
+        "U2/U2/uart1_time_s_23" BEL "U2/U2/uart1_time_s_22" BEL
+        "U2/U2/uart1_time_s_21" BEL "U2/U2/uart1_time_s_20" BEL
+        "U2/U2/uart1_time_s_19" BEL "U2/U2/uart1_time_s_18" BEL
+        "U2/U2/uart1_time_s_17" BEL "U2/U2/uart1_time_s_16" BEL
+        "U2/U2/uart1_time_s_15" BEL "U2/U2/uart1_time_s_14" BEL
+        "U2/U2/uart1_time_s_13" BEL "U2/U2/uart1_time_s_12" BEL
+        "U2/U2/uart1_time_s_11" BEL "U2/U2/uart1_time_s_10" BEL
+        "U2/U2/uart1_time_s_9" BEL "U2/U2/uart1_time_s_8" BEL
+        "U2/U2/uart1_time_s_7" BEL "U2/U2/uart1_time_s_6" BEL
+        "U2/U2/uart1_time_s_5" BEL "U2/U2/uart1_time_s_4" BEL
+        "U2/U2/uart1_time_s_3" BEL "U2/U2/uart1_time_s_2" BEL
+        "U2/U2/uart1_time_s_1" BEL "U2/U2/uart1_time_s_0" BEL
+        "U2/U2/dds_phase_accumulator_word_s_31" BEL
+        "U2/U2/dds_phase_accumulator_word_s_30" BEL
+        "U2/U2/dds_phase_accumulator_word_s_29" BEL
+        "U2/U2/dds_phase_accumulator_word_s_28" BEL
+        "U2/U2/dds_phase_accumulator_word_s_27" BEL
+        "U2/U2/dds_phase_accumulator_word_s_26" BEL
+        "U2/U2/dds_phase_accumulator_word_s_25" BEL
+        "U2/U2/dds_phase_accumulator_word_s_24" BEL
+        "U2/U2/dds_phase_accumulator_word_s_23" BEL
+        "U2/U2/dds_phase_accumulator_word_s_22" BEL
+        "U2/U2/dds_phase_accumulator_word_s_21" BEL
+        "U2/U2/dds_phase_accumulator_word_s_20" BEL
+        "U2/U2/dds_phase_accumulator_word_s_19" BEL
+        "U2/U2/dds_phase_accumulator_word_s_18" BEL
+        "U2/U2/dds_phase_accumulator_word_s_17" BEL
+        "U2/U2/dds_phase_accumulator_word_s_16" BEL
+        "U2/U2/dds_phase_accumulator_word_s_15" BEL
+        "U2/U2/dds_phase_accumulator_word_s_14" BEL
+        "U2/U2/dds_phase_accumulator_word_s_13" BEL
+        "U2/U2/dds_phase_accumulator_word_s_12" BEL
+        "U2/U2/dds_phase_accumulator_word_s_11" BEL
+        "U2/U2/dds_phase_accumulator_word_s_10" BEL
+        "U2/U2/dds_phase_accumulator_word_s_9" BEL
+        "U2/U2/dds_phase_accumulator_word_s_8" BEL
+        "U2/U2/dds_phase_accumulator_word_s_7" BEL
+        "U2/U2/dds_phase_accumulator_word_s_6" BEL
+        "U2/U2/dds_phase_accumulator_word_s_5" BEL
+        "U2/U2/dds_phase_accumulator_word_s_4" BEL
+        "U2/U2/dds_phase_accumulator_word_s_3" BEL
+        "U2/U2/dds_phase_accumulator_word_s_2" BEL
+        "U2/U2/dds_phase_accumulator_word_s_1" BEL
+        "U2/U2/dds_phase_accumulator_word_s_0" BEL
+        "U2/U2/valid_command_completed_s" BEL "U2/U2/dds_channel_gain_15" BEL
+        "U2/U2/dds_channel_gain_11" BEL "U2/U2/dds_channel_gain_10" BEL
+        "U2/U2/dds_channel_gain_9" BEL "U2/U2/dds_channel_gain_8" BEL
+        "U2/U2/dds_channel_gain_7" BEL "U2/U2/dds_channel_gain_6" BEL
+        "U2/U2/dds_channel_gain_5" BEL "U2/U2/dds_channel_gain_4" BEL
+        "U2/U2/dds_channel_gain_3" BEL "U2/U2/dds_channel_gain_2" BEL
+        "U2/U2/dds_channel_gain_1" BEL "U2/U2/dds_channel_gain_0" BEL
+        "U2/U2/dds_ram_rd_addr_s_7" BEL "U2/U2/dds_ram_rd_addr_s_6" BEL
+        "U2/U2/dds_ram_rd_addr_s_5" BEL "U2/U2/dds_ram_rd_addr_s_4" BEL
+        "U2/U2/dds_ram_rd_addr_s_3" BEL "U2/U2/dds_ram_rd_addr_s_2" BEL
+        "U2/U2/dds_ram_rd_addr_s_1" BEL "U2/U2/dds_ram_rd_addr_s_0" BEL
+        "U2/U2/dds_phase_accumulator_load_en_s" BEL "U2/U2/uart1_spi_mux_s"
+        BEL "U2/U2/dds_spi_mux_s" BEL "U2/U2/uart2_spi_mux_s" BEL
+        "U2/U2/dds_bits_to_send_on_last_byte_s_3" BEL
+        "U2/U2/dds_bits_to_send_on_last_byte_s_2" BEL
+        "U2/U2/dds_bits_to_send_on_last_byte_s_1" BEL
+        "U2/U2/dds_bits_to_send_on_last_byte_s_0" BEL "U2/U2/dds_tx_time_s_31"
+        BEL "U2/U2/dds_tx_time_s_30" BEL "U2/U2/dds_tx_time_s_29" BEL
+        "U2/U2/dds_tx_time_s_28" BEL "U2/U2/dds_tx_time_s_27" BEL
+        "U2/U2/dds_tx_time_s_26" BEL "U2/U2/dds_tx_time_s_25" BEL
+        "U2/U2/dds_tx_time_s_24" BEL "U2/U2/dds_tx_time_s_23" BEL
+        "U2/U2/dds_tx_time_s_22" BEL "U2/U2/dds_tx_time_s_21" BEL
+        "U2/U2/dds_tx_time_s_20" BEL "U2/U2/dds_tx_time_s_19" BEL
+        "U2/U2/dds_tx_time_s_18" BEL "U2/U2/dds_tx_time_s_17" BEL
+        "U2/U2/dds_tx_time_s_16" BEL "U2/U2/dds_tx_time_s_15" BEL
+        "U2/U2/dds_tx_time_s_14" BEL "U2/U2/dds_tx_time_s_13" BEL
+        "U2/U2/dds_tx_time_s_12" BEL "U2/U2/dds_tx_time_s_11" BEL
+        "U2/U2/dds_tx_time_s_10" BEL "U2/U2/dds_tx_time_s_9" BEL
+        "U2/U2/dds_tx_time_s_8" BEL "U2/U2/dds_tx_time_s_7" BEL
+        "U2/U2/dds_tx_time_s_6" BEL "U2/U2/dds_tx_time_s_5" BEL
+        "U2/U2/dds_tx_time_s_4" BEL "U2/U2/dds_tx_time_s_3" BEL
+        "U2/U2/dds_tx_time_s_2" BEL "U2/U2/dds_tx_time_s_1" BEL
+        "U2/U2/dds_tx_time_s_0" BEL "U2/U2/dds_state_wait_for_time_s" BEL
+        "U2/U2/DDS_IO_UD_CLK" BEL "U2/U2/command_ready_d_s" BEL
+        "U2/U2/dds_ram_wr_data_s_7" BEL "U2/U2/dds_ram_wr_data_s_6" BEL
+        "U2/U2/dds_ram_wr_data_s_5" BEL "U2/U2/dds_ram_wr_data_s_4" BEL
+        "U2/U2/dds_ram_wr_data_s_3" BEL "U2/U2/dds_ram_wr_data_s_2" BEL
+        "U2/U2/dds_ram_wr_data_s_1" BEL "U2/U2/dds_ram_wr_data_s_0" BEL
+        "U2/U2/led_control_register_s_2" BEL "U2/U2/led_control_register_s_1"
+        BEL "U2/U2/led_control_register_s_0" BEL
+        "U2/U2/sync_time_read_latch_s_31" BEL
+        "U2/U2/sync_time_read_latch_s_30" BEL
+        "U2/U2/sync_time_read_latch_s_29" BEL
+        "U2/U2/sync_time_read_latch_s_28" BEL
+        "U2/U2/sync_time_read_latch_s_27" BEL
+        "U2/U2/sync_time_read_latch_s_26" BEL
+        "U2/U2/sync_time_read_latch_s_25" BEL
+        "U2/U2/sync_time_read_latch_s_24" BEL
+        "U2/U2/sync_time_read_latch_s_23" BEL
+        "U2/U2/sync_time_read_latch_s_22" BEL
+        "U2/U2/sync_time_read_latch_s_21" BEL
+        "U2/U2/sync_time_read_latch_s_20" BEL
+        "U2/U2/sync_time_read_latch_s_19" BEL
+        "U2/U2/sync_time_read_latch_s_18" BEL
+        "U2/U2/sync_time_read_latch_s_17" BEL
+        "U2/U2/sync_time_read_latch_s_16" BEL
+        "U2/U2/sync_time_read_latch_s_15" BEL
+        "U2/U2/sync_time_read_latch_s_14" BEL
+        "U2/U2/sync_time_read_latch_s_13" BEL
+        "U2/U2/sync_time_read_latch_s_12" BEL
+        "U2/U2/sync_time_read_latch_s_11" BEL
+        "U2/U2/sync_time_read_latch_s_10" BEL "U2/U2/sync_time_read_latch_s_9"
+        BEL "U2/U2/sync_time_read_latch_s_8" BEL
+        "U2/U2/sync_time_read_latch_s_7" BEL "U2/U2/sync_time_read_latch_s_6"
+        BEL "U2/U2/sync_time_read_latch_s_5" BEL
+        "U2/U2/sync_time_read_latch_s_4" BEL "U2/U2/sync_time_read_latch_s_3"
+        BEL "U2/U2/sync_time_read_latch_s_2" BEL
+        "U2/U2/sync_time_read_latch_s_1" BEL "U2/U2/sync_time_read_latch_s_0"
+        BEL "U2/U2/DDS_SPI_MASTER/state_FSM_FFd2" BEL
+        "U2/U2/DDS_SPI_MASTER/state_FSM_FFd1" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_5" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_4" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_3" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_2" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_1" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_toggles_0" BEL
+        "U2/U2/DDS_SPI_MASTER/assert_data" BEL "U2/U2/DDS_SPI_MASTER/busy" BEL
+        "U2/U2/DDS_SPI_MASTER/count_31" BEL "U2/U2/DDS_SPI_MASTER/count_30"
+        BEL "U2/U2/DDS_SPI_MASTER/count_29" BEL
+        "U2/U2/DDS_SPI_MASTER/count_28" BEL "U2/U2/DDS_SPI_MASTER/count_27"
+        BEL "U2/U2/DDS_SPI_MASTER/count_26" BEL
+        "U2/U2/DDS_SPI_MASTER/count_25" BEL "U2/U2/DDS_SPI_MASTER/count_24"
+        BEL "U2/U2/DDS_SPI_MASTER/count_23" BEL
+        "U2/U2/DDS_SPI_MASTER/count_22" BEL "U2/U2/DDS_SPI_MASTER/count_21"
+        BEL "U2/U2/DDS_SPI_MASTER/count_20" BEL
+        "U2/U2/DDS_SPI_MASTER/count_19" BEL "U2/U2/DDS_SPI_MASTER/count_18"
+        BEL "U2/U2/DDS_SPI_MASTER/count_17" BEL
+        "U2/U2/DDS_SPI_MASTER/count_16" BEL "U2/U2/DDS_SPI_MASTER/count_15"
+        BEL "U2/U2/DDS_SPI_MASTER/count_14" BEL
+        "U2/U2/DDS_SPI_MASTER/count_13" BEL "U2/U2/DDS_SPI_MASTER/count_12"
+        BEL "U2/U2/DDS_SPI_MASTER/count_11" BEL
+        "U2/U2/DDS_SPI_MASTER/count_10" BEL "U2/U2/DDS_SPI_MASTER/count_9" BEL
+        "U2/U2/DDS_SPI_MASTER/count_8" BEL "U2/U2/DDS_SPI_MASTER/count_7" BEL
+        "U2/U2/DDS_SPI_MASTER/count_6" BEL "U2/U2/DDS_SPI_MASTER/count_5" BEL
+        "U2/U2/DDS_SPI_MASTER/count_4" BEL "U2/U2/DDS_SPI_MASTER/count_3" BEL
+        "U2/U2/DDS_SPI_MASTER/count_2" BEL "U2/U2/DDS_SPI_MASTER/count_1" BEL
+        "U2/U2/DDS_SPI_MASTER/count_0" BEL "U2/U2/DDS_SPI_MASTER/tx_buffer_23"
+        BEL "U2/U2/DDS_SPI_MASTER/tx_buffer_22" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_21" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_20" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_19" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_18" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_17" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_16" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_15" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_14" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_13" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_12" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_11" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_10" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_9" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_8" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_7" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_6" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_5" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_4" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_3" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_2" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_1" BEL
+        "U2/U2/DDS_SPI_MASTER/tx_buffer_0" BEL "U2/U2/DDS_SPI_MASTER/mosi" BEL
+        "U2/U2/UART2_SPI_MASTER/state_FSM_FFd1" BEL
+        "U2/U2/UART2_SPI_MASTER/state_FSM_FFd2" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_5" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_4" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_3" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_2" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_1" BEL
+        "U2/U2/UART2_SPI_MASTER/clk_toggles_0" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_15" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_14" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_13" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_12" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_11" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_10" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_9" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_8" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_7" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_6" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_5" BEL
+        "U2/U2/UART2_SPI_MASTER/tx_buffer_4" BEL
+        "U2/U2/UART2_SPI_MASTER/assert_data" BEL
+        "U2/U2/UART2_SPI_MASTER/count_31" BEL
+        "U2/U2/UART2_SPI_MASTER/count_30" BEL
+        "U2/U2/UART2_SPI_MASTER/count_29" BEL
+        "U2/U2/UART2_SPI_MASTER/count_28" BEL
+        "U2/U2/UART2_SPI_MASTER/count_27" BEL
+        "U2/U2/UART2_SPI_MASTER/count_26" BEL
+        "U2/U2/UART2_SPI_MASTER/count_25" BEL
+        "U2/U2/UART2_SPI_MASTER/count_24" BEL
+        "U2/U2/UART2_SPI_MASTER/count_23" BEL
+        "U2/U2/UART2_SPI_MASTER/count_22" BEL
+        "U2/U2/UART2_SPI_MASTER/count_21" BEL
+        "U2/U2/UART2_SPI_MASTER/count_20" BEL
+        "U2/U2/UART2_SPI_MASTER/count_19" BEL
+        "U2/U2/UART2_SPI_MASTER/count_18" BEL
+        "U2/U2/UART2_SPI_MASTER/count_17" BEL
+        "U2/U2/UART2_SPI_MASTER/count_16" BEL
+        "U2/U2/UART2_SPI_MASTER/count_15" BEL
+        "U2/U2/UART2_SPI_MASTER/count_14" BEL
+        "U2/U2/UART2_SPI_MASTER/count_13" BEL
+        "U2/U2/UART2_SPI_MASTER/count_12" BEL
+        "U2/U2/UART2_SPI_MASTER/count_11" BEL
+        "U2/U2/UART2_SPI_MASTER/count_10" BEL "U2/U2/UART2_SPI_MASTER/count_9"
+        BEL "U2/U2/UART2_SPI_MASTER/count_8" BEL
+        "U2/U2/UART2_SPI_MASTER/count_7" BEL "U2/U2/UART2_SPI_MASTER/count_6"
+        BEL "U2/U2/UART2_SPI_MASTER/count_5" BEL
+        "U2/U2/UART2_SPI_MASTER/count_4" BEL "U2/U2/UART2_SPI_MASTER/count_3"
+        BEL "U2/U2/UART2_SPI_MASTER/count_2" BEL
+        "U2/U2/UART2_SPI_MASTER/count_1" BEL "U2/U2/UART2_SPI_MASTER/count_0"
+        BEL "U2/U2/UART2_SPI_MASTER/mosi" BEL
+        "U2/U2/UART1_SPI_MASTER/state_FSM_FFd1" BEL
+        "U2/U2/UART1_SPI_MASTER/state_FSM_FFd2" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_5" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_4" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_3" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_2" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_1" BEL
+        "U2/U2/UART1_SPI_MASTER/clk_toggles_0" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_15" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_14" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_13" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_12" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_11" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_10" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_9" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_8" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_7" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_6" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_5" BEL
+        "U2/U2/UART1_SPI_MASTER/tx_buffer_4" BEL
+        "U2/U2/UART1_SPI_MASTER/assert_data" BEL
+        "U2/U2/UART1_SPI_MASTER/count_31" BEL
+        "U2/U2/UART1_SPI_MASTER/count_30" BEL
+        "U2/U2/UART1_SPI_MASTER/count_29" BEL
+        "U2/U2/UART1_SPI_MASTER/count_28" BEL
+        "U2/U2/UART1_SPI_MASTER/count_27" BEL
+        "U2/U2/UART1_SPI_MASTER/count_26" BEL
+        "U2/U2/UART1_SPI_MASTER/count_25" BEL
+        "U2/U2/UART1_SPI_MASTER/count_24" BEL
+        "U2/U2/UART1_SPI_MASTER/count_23" BEL
+        "U2/U2/UART1_SPI_MASTER/count_22" BEL
+        "U2/U2/UART1_SPI_MASTER/count_21" BEL
+        "U2/U2/UART1_SPI_MASTER/count_20" BEL
+        "U2/U2/UART1_SPI_MASTER/count_19" BEL
+        "U2/U2/UART1_SPI_MASTER/count_18" BEL
+        "U2/U2/UART1_SPI_MASTER/count_17" BEL
+        "U2/U2/UART1_SPI_MASTER/count_16" BEL
+        "U2/U2/UART1_SPI_MASTER/count_15" BEL
+        "U2/U2/UART1_SPI_MASTER/count_14" BEL
+        "U2/U2/UART1_SPI_MASTER/count_13" BEL
+        "U2/U2/UART1_SPI_MASTER/count_12" BEL
+        "U2/U2/UART1_SPI_MASTER/count_11" BEL
+        "U2/U2/UART1_SPI_MASTER/count_10" BEL "U2/U2/UART1_SPI_MASTER/count_9"
+        BEL "U2/U2/UART1_SPI_MASTER/count_8" BEL
+        "U2/U2/UART1_SPI_MASTER/count_7" BEL "U2/U2/UART1_SPI_MASTER/count_6"
+        BEL "U2/U2/UART1_SPI_MASTER/count_5" BEL
+        "U2/U2/UART1_SPI_MASTER/count_4" BEL "U2/U2/UART1_SPI_MASTER/count_3"
+        BEL "U2/U2/UART1_SPI_MASTER/count_2" BEL
+        "U2/U2/UART1_SPI_MASTER/count_1" BEL "U2/U2/UART1_SPI_MASTER/count_0"
+        BEL "U2/U2/UART1_SPI_MASTER/mosi" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_31" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_30" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_29" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_28" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_27" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_26" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_25" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_24" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_23" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_22" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_21" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_20" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_19" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_18" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_17" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_16" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_15" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_14" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_13" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_12" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_11" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_10" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_9" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_8" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_7" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_6" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_5" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_4" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_3" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_2" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_1" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_s_0" BEL
+        "U2/U2/DDS_BITRATE_GEN/clk_out_d_s" BEL
+        "U2/U2/DDS_BITRATE_GEN/clk_out_s" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_31" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_30" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_29" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_28" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_27" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_26" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_25" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_24" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_23" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_22" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_21" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_20" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_19" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_18" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_17" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_16" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_15" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_14" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_13" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_12" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_11" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_10" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_9" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_8" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_7" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_6" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_5" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_4" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_3" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_2" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_1" BEL
+        "U2/U2/DDS_BITRATE_GEN/phase_accumulator_word_s_0" BEL
+        "U2/U1/bitcount_s_7" BEL "U2/U1/bitcount_s_6" BEL "U2/U1/bitcount_s_5"
+        BEL "U2/U1/bitcount_s_4" BEL "U2/U1/bitcount_s_3" BEL
+        "U2/U1/bitcount_s_2" BEL "U2/U1/bitcount_s_1" BEL "U2/U1/bitcount_s_0"
+        BEL "U2/U1/byte_count_s_7" BEL "U2/U1/byte_count_s_6" BEL
+        "U2/U1/byte_count_s_5" BEL "U2/U1/byte_count_s_4" BEL
+        "U2/U1/byte_count_s_3" BEL "U2/U1/byte_count_s_2" BEL
+        "U2/U1/byte_count_s_1" BEL "U2/U1/byte_count_s_0" BEL "U2/U1/miso_s"
+        BEL "U2/U1/BYTE_RX_7" BEL "U2/U1/BYTE_RX_6" BEL "U2/U1/BYTE_RX_5" BEL
+        "U2/U1/BYTE_RX_4" BEL "U2/U1/BYTE_RX_3" BEL "U2/U1/BYTE_RX_2" BEL
+        "U2/U1/BYTE_RX_1" BEL "U2/U1/BYTE_RX_0" BEL "U2/U1/out_shift_reg_s_7"
+        BEL "U2/U1/out_shift_reg_s_6" BEL "U2/U1/out_shift_reg_s_5" BEL
+        "U2/U1/out_shift_reg_s_4" BEL "U2/U1/out_shift_reg_s_3" BEL
+        "U2/U1/out_shift_reg_s_2" BEL "U2/U1/out_shift_reg_s_1" BEL
+        "U2/U1/out_shift_reg_s_0" BEL "U2/U1/in_shift_reg_s_7" BEL
+        "U2/U1/in_shift_reg_s_6" BEL "U2/U1/in_shift_reg_s_5" BEL
+        "U2/U1/in_shift_reg_s_4" BEL "U2/U1/in_shift_reg_s_3" BEL
+        "U2/U1/in_shift_reg_s_2" BEL "U2/U1/in_shift_reg_s_1" BEL
+        "U2/U1/in_shift_reg_s_0" BEL "U2/U1/sck_filter_d_s" BEL
+        "U2/U1/cs_filter_d_s" BEL "U2/U1/cs_d_s_2" BEL "U2/U1/cs_d_s_1" BEL
+        "U2/U1/cs_d_s_0" BEL "U2/U1/byte_tx_load_d_s_0" BEL
+        "U2/U1/sck_filter_s" BEL "U2/U1/sck_d_s_2" BEL "U2/U1/sck_d_s_1" BEL
+        "U2/U1/sck_d_s_0" BEL "U2/U1/cs_filter_s" BEL "U1/sync_time_s_31" BEL
+        "U1/sync_time_s_30" BEL "U1/sync_time_s_29" BEL "U1/sync_time_s_28"
+        BEL "U1/sync_time_s_27" BEL "U1/sync_time_s_26" BEL
+        "U1/sync_time_s_25" BEL "U1/sync_time_s_24" BEL "U1/sync_time_s_23"
+        BEL "U1/sync_time_s_22" BEL "U1/sync_time_s_21" BEL
+        "U1/sync_time_s_20" BEL "U1/sync_time_s_19" BEL "U1/sync_time_s_18"
+        BEL "U1/sync_time_s_17" BEL "U1/sync_time_s_16" BEL
+        "U1/sync_time_s_15" BEL "U1/sync_time_s_14" BEL "U1/sync_time_s_13"
+        BEL "U1/sync_time_s_12" BEL "U1/sync_time_s_11" BEL
+        "U1/sync_time_s_10" BEL "U1/sync_time_s_9" BEL "U1/sync_time_s_8" BEL
+        "U1/sync_time_s_7" BEL "U1/sync_time_s_6" BEL "U1/sync_time_s_5" BEL
+        "U1/sync_time_s_4" BEL "U1/sync_time_s_3" BEL "U1/sync_time_s_2" BEL
+        "U1/sync_time_s_1" BEL "U1/sync_time_s_0" BEL "U1/state_s_FSM_FFd1"
+        BEL "U1/state_s_FSM_FFd2" BEL "U1/sync_clk_s_d_5" BEL
+        "U1/sync_clk_s_d_4" BEL "U1/sync_clk_s_d_3" BEL "U2/reset_status_s"
+        BEL "U2/U2/dds_data_rdy_to_send_s" BEL "U2/U2/dds_ram_wr_en_s_0" BEL
+        "U2/U2/dds_wait_for_end_of_ram_filling_s" BEL
+        "U2/U2/incomplete_command_rx_s" BEL "U2/U2/invalid_command_rx_s" BEL
+        "U2/U2/dds_send_gain_zero_s" BEL "U2/U2/dds_io_ud_clk_s" BEL
+        "U2/U2/dds_send_continous_s" BEL "U2/U2/uart2_time_ready_s" BEL
+        "U2/U2/uart1_time_ready_s" BEL "U2/U2/dds_phase_accumulator_reset_s"
+        BEL "U2/U2/DDS_SPI_MASTER/ss_n_0" BEL
+        "U2/U2/DDS_SPI_MASTER/state[1]_clock_DFF_123" BEL
+        "U2/U2/UART2_SPI_MASTER/ss_n_0" BEL
+        "U2/U2/UART2_SPI_MASTER/state[1]_clock_DFF_146" BEL
+        "U2/U2/UART1_SPI_MASTER/ss_n_0" BEL
+        "U2/U2/UART1_SPI_MASTER/state[1]_clock_DFF_146" BEL
+        "U2/alive_indicator_s" BEL "U2/U2/DDS_FSK_BPSK_HOLD" BEL
+        "U2/U2/fsk_stop_time_ready_s" BEL "U2/U2/uart1_spi_master_tx_data_s_4"
+        BEL "U2/U2/uart2_spi_master_tx_data_s_4" BEL "U2/U2/uart2_mode_s" BEL
+        "U2/U2/uart1_mode_s" BEL "U2/U2/DDS_SPI_MASTER/sclk" BEL
+        "U2/U2/DDS_SPI_MASTER/clk_ratio_31" BEL "U2/U2/UART2_SPI_MASTER/sclk"
+        BEL "U2/U2/UART2_SPI_MASTER/last_bit_rx_0" BEL
+        "U2/U2/UART1_SPI_MASTER/sclk" BEL
+        "U2/U2/UART1_SPI_MASTER/last_bit_rx_0" BEL
+        "U2/U2/DDS_BITRATE_GEN/PULSE_OUT" BEL "U2/U1/sck_falling_edge_s" BEL
+        "U2/U1/cs_falling_edge_s" BEL "U2/U1/sck_raising_edge_s" BEL
+        "U2/U2/uart2_spi_master_en_s" BEL "U2/U2/valid_command_rx_s" BEL
+        "U2/U2/uart1_spi_master_en_s" BEL "U2/U1/byte_rx_ready_pulse_s" BEL
+        "U2/U1/state_s" BEL "U2/command_ready_s" BEL
+        "U2/U2/invalid_command_detected_s" BEL "U2/U2/dds_ram_wr_addr_s_7" BEL
+        "U2/U2/dds_ram_wr_addr_s_6" BEL "U2/U2/dds_ram_wr_addr_s_5" BEL
+        "U2/U2/dds_ram_wr_addr_s_4" BEL "U2/U2/dds_ram_wr_addr_s_3" BEL
+        "U2/U2/dds_ram_wr_addr_s_2" BEL "U2/U2/dds_ram_wr_addr_s_1" BEL
+        "U2/U2/dds_ram_wr_addr_s_0" BEL "U2/U1/byte_count_s_2_1" BEL
+        "U2/U1/byte_count_s_0_1" BEL "U2/U1/byte_count_s_2_2" BEL
+        "U2/U1/byte_count_s_1_1" BEL "U2/command_ready_s_1" BEL
+        "U2/U1/Mshreg_mosi_d_s_3" BEL "U2/Mshreg_cs_d_s_1" BEL "U2/cs_d_s_1"
+        BEL "U2/U1/Mshreg_byte_tx_load_d_s_5" BEL "U2/U1/byte_tx_load_d_s_5"
+        BEL "U1/Mshreg_sync_clk_s_d_2" BEL "U1/sync_clk_s_d_2" BEL
+        "U1/Mshreg_sync_reset_s_d_2" BEL "U1/sync_reset_s_d_2" PIN
+        "CLK1/pll_base_inst/PLL_ADV_pins<2>" PIN
+        "U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram_pins<26>"
+        PIN
+        "U2/U2/DDS_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.WIDE_PRIM9.ram_pins<27>";
+TS_CLK = PERIOD TIMEGRP "CLK" 100 MHz HIGH 50%;
+SCHEMATIC END;
+

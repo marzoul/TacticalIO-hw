@@ -1,0 +1,22 @@
+Schematic and PCB Check Report
+------------------------------
+
+Report File    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO (PCB - Schematic and PCB Check Report).txt
+Report Written : Friday, December 19, 2014
+Project Path   : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO_REV1_03.prj
+Design Path    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO.pcb
+Design Title   : 
+Created        : 9/17/2014 7:53:59 PM
+Last Saved     : 12/19/2014 10:14:44 AM
+Editing Time   : 11826 min
+Units          : mm (precision 1)
+
+
+Checking integrity of Schematic and Pcb designs in project "TIO-64GPIO_REV1_03"
+===============================================================================
+
+
+Warning: Project has more than one version of Component "Capacitor" ("Outputs.sch" & "GPIO Expanders.sch"). At least one should be reloaded otherwise results may be incorrect.
+
+
+End Of Report.

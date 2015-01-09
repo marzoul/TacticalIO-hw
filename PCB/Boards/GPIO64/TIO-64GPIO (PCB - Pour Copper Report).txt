@@ -1,0 +1,15 @@
+Pour Copper Report
+------------------
+
+Report File    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO (PCB - Pour Copper Report).txt
+Report Written : Friday, December 19, 2014
+Project Path   : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO_REV1_03.prj
+Design Path    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO.pcb
+Design Title   : 
+Created        : 9/17/2014 7:53:59 PM
+Last Saved     : 12/19/2014 7:35:13 PM
+Editing Time   : 12323 min
+Units          : mm (precision 1)
+
+
+End Of Report.

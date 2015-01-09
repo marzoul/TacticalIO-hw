@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Timing" num="3402" delta="old" >The Clock Modifying COMP, <arg fmt="%s" index="1">CLK0/dcm_sp_inst</arg>, has the attribute CLK_FEEDBACK set to NONE.  No phase relationship exists between the input and output clocks of this Clock Modifying COMP. Data paths between these clock domains must be constrained using FROM/TO constraints.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">UART1_N_IRQ_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">UART2_N_IRQ_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">BTN_0_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">BTN_1_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE1_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE2_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE3_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE4_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE5_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE6_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE7_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">SPARE8_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">CSMUX&lt;0&gt;_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">CSMUX&lt;1&gt;_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">CSMUX&lt;2&gt;_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="Par" num="288" delta="old" >The signal <arg fmt="%s" index="1">BUS_CLK_IBUF</arg> has no load.  PAR will not attempt to route this signal.
+</msg>
+
+<msg type="warning" file="ParHelpers" num="361" delta="old" >There are <arg fmt="%d" index="1">16</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+</msg>
+
+<msg type="warning" file="Par" num="283" delta="old" >There are <arg fmt="%d" index="1">16</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+</msg>
+
+</messages>
+

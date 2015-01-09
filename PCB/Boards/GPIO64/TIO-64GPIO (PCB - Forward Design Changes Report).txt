@@ -1,0 +1,126 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO (PCB - Forward Design Changes Report).txt
+Report Written : Friday, December 19, 2014
+Project Path   : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO_REV1_03.prj
+Design Path    : E:\Users\Alex\Documents\tio-64gpio\PCB\TIO-64GPIO_REV1_03\TIO-64GPIO.pcb
+Design Title   : 
+Created        : 9/17/2014 7:53:59 PM
+Last Saved     : 12/19/2014 10:14:44 AM
+Editing Time   : 11826 min
+Units          : mm (precision 1)
+
+Disconnected pin "R12-2" from net "+5V".
+Disconnected pin "R13-2" from net "+5V".
+Disconnected pin "R14-2" from net "+5V".
+Disconnected pin "R15-2" from net "+5V".
+Disconnected pin "R24-2" from net "+5V".
+Disconnected pin "R25-2" from net "+5V".
+Disconnected pin "R26-2" from net "+5V".
+Disconnected pin "R27-2" from net "+5V".
+Disconnected pin "R36-2" from net "+5V".
+Disconnected pin "R37-2" from net "+5V".
+Disconnected pin "R38-2" from net "+5V".
+Disconnected pin "R39-2" from net "+5V".
+Disconnected pin "R48-2" from net "+5V".
+Disconnected pin "R49-2" from net "+5V".
+Disconnected pin "R50-2" from net "+5V".
+Disconnected pin "R51-2" from net "+5V".
+Disconnected pin "R89-1" from net "+5V".
+Disconnected pin "R90-1" from net "+5V".
+Disconnected pin "R91-1" from net "+5V".
+Disconnected pin "R92-1" from net "+5V".
+Disconnected pin "R93-1" from net "+5V".
+Disconnected pin "R94-1" from net "+5V".
+Disconnected pin "R95-1" from net "+5V".
+Disconnected pin "R96-1" from net "+5V".
+Disconnected pin "R105-1" from net "+5V".
+Disconnected pin "R106-1" from net "+5V".
+Disconnected pin "R107-1" from net "+5V".
+Disconnected pin "R108-1" from net "+5V".
+Disconnected pin "R125-1" from net "+5V".
+Disconnected pin "R126-1" from net "+5V".
+Disconnected pin "R127-1" from net "+5V".
+Disconnected pin "R128-1" from net "+5V".
+Disconnected pin "U1-9" from net "+5V".
+Disconnected pin "U1-18" from net "+5V".
+Disconnected pin "C1-2" from net "+5V".
+Disconnected pin "U2-9" from net "+5V".
+Disconnected pin "U2-17" from net "+5V".
+Disconnected pin "U2-18" from net "+5V".
+Disconnected pin "C2-2" from net "+5V".
+Disconnected pin "U7-9" from net "+5V".
+Disconnected pin "U7-16" from net "+5V".
+Disconnected pin "U7-18" from net "+5V".
+Disconnected pin "C3-2" from net "+5V".
+Disconnected pin "U8-9" from net "+5V".
+Disconnected pin "U8-16" from net "+5V".
+Disconnected pin "U8-17" from net "+5V".
+Disconnected pin "U8-18" from net "+5V".
+Disconnected pin "C4-2" from net "+5V".
+
+Added net "+3.3V".
+
+Added component reference "U45" of component "ADP3338", package "USER".
+Added component reference "C39" of component "EEE-1CA470WR", package "SM".
+Added value "Value=47 uF" to component reference "C39".
+
+
+Connected pin "R12-2" to net "+3.3V".
+Connected pin "R13-2" to net "+3.3V".
+Connected pin "R14-2" to net "+3.3V".
+Connected pin "R15-2" to net "+3.3V".
+Connected pin "R24-2" to net "+3.3V".
+Connected pin "R27-2" to net "+3.3V".
+Connected pin "R25-2" to net "+3.3V".
+Connected pin "R26-2" to net "+3.3V".
+Connected pin "R36-2" to net "+3.3V".
+Connected pin "R37-2" to net "+3.3V".
+Connected pin "R38-2" to net "+3.3V".
+Connected pin "R39-2" to net "+3.3V".
+Connected pin "R48-2" to net "+3.3V".
+Connected pin "R49-2" to net "+3.3V".
+Connected pin "R50-2" to net "+3.3V".
+Connected pin "R51-2" to net "+3.3V".
+Connected pin "R125-1" to net "+3.3V".
+Connected pin "R126-1" to net "+3.3V".
+Connected pin "R127-1" to net "+3.3V".
+Connected pin "R128-1" to net "+3.3V".
+Connected pin "R105-1" to net "+3.3V".
+Connected pin "R106-1" to net "+3.3V".
+Connected pin "R107-1" to net "+3.3V".
+Connected pin "R108-1" to net "+3.3V".
+Connected pin "R93-1" to net "+3.3V".
+Connected pin "R94-1" to net "+3.3V".
+Connected pin "R95-1" to net "+3.3V".
+Connected pin "R96-1" to net "+3.3V".
+Connected pin "R89-1" to net "+3.3V".
+Connected pin "R90-1" to net "+3.3V".
+Connected pin "R91-1" to net "+3.3V".
+Connected pin "R92-1" to net "+3.3V".
+Connected pin "U1-9" to net "+3.3V".
+Connected pin "U1-18" to net "+3.3V".
+Connected pin "C1-2" to net "+3.3V".
+Connected pin "U2-9" to net "+3.3V".
+Connected pin "U2-17" to net "+3.3V".
+Connected pin "U2-18" to net "+3.3V".
+Connected pin "C2-2" to net "+3.3V".
+Connected pin "U7-9" to net "+3.3V".
+Connected pin "U7-16" to net "+3.3V".
+Connected pin "U7-18" to net "+3.3V".
+Connected pin "C3-2" to net "+3.3V".
+Connected pin "U8-9" to net "+3.3V".
+Connected pin "U8-16" to net "+3.3V".
+Connected pin "U8-17" to net "+3.3V".
+Connected pin "U8-18" to net "+3.3V".
+Connected pin "C4-2" to net "+3.3V".
+Connected pin "U45-1" to net "GND".
+Connected pin "U45-2" to net "+3.3V".
+Connected pin "U45-3" to net "+5V".
+Connected pin "U45-4" to net "GND".
+Connected pin "C39-1" to net "GND".
+Connected pin "C39-2" to net "+3.3V".
+
+
+End Of Report.

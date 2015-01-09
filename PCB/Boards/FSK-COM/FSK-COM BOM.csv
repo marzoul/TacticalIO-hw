@@ -1,0 +1,50 @@
+Index,Ref Des,Component,Value,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number,Package,Component Type
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+1,,Resistor,N/U (0R0),1,Do not use,,,,805,Surface-Mount
+2,,Resistor,N/U,6,Do not use,,Do not use,,805,Surface-Mount
+3,PL1  PL2  PL3  PL4,CONN_SIL_2,,4,Digikey,3M11970-ND,3M,929647-01-02-EU,DSC,Through-Hole
+4,C54  C63  C78  C79,Capacitor,10nF,4,Digikey,399-1159-1-ND,Kemet,C0805C103K1RACTU,805,Surface-Mount
+5,C2  C26,Capacitor,8.2pF,2,Digikey,399-8688-1-ND,Kemet,CBR08C829CAGAC,805,Surface-Mount
+6,C3  C27,Capacitor,12pF,2,Digikey,399-8707-1-ND,Kemet,CBR08C120FAGAC,805,Surface-Mount
+7,C4  C28,Capacitor,2.2pF,2,Digikey,399-8724-1-ND,Kemet,CBR08C229BAGAC,805,Surface-Mount
+8,C11  C33,Capacitor,22pF,2,Digikey,399-8756-1-ND,Kemet,CBR08C220FAGAC,805,Surface-Mount
+9,C14  C36,Capacitor,27pF,2,Digikey,399-8759-1-ND,Kemet,CBR08C270FAGAC,805,Surface-Mount
+10,U7,CC10-0512DR-E,,1,Digikey,445-3328-ND,TDK-Lambda Americas Inc,CC10-0512DR-E,CC10-0512DR-E,Surface-Mount
+11,C6  C9  C19  C24  C30  C39  C40  C48  C49  C51  C53  C59  C61  C66  C71  C73  C77  C81,Capacitor,10uF,18,Digikey,445-11516-1-ND,TDK Corporation,C2012JB1V106K085AC,805,Surface-Mount
+12,D1  D2  D3  D4  D5,LED,,5,Digikey,475-3118-1-ND,OSRAM opto Semiconductors Inc.,LG L29K-F2J1-24-Z,603,Surface-Mount
+13,C13  C35,Capacitor,47pF,2,Digikey,478-3830-1-ND,AVX Corporation,08052U470FAT2A,805,Surface-Mount
+14,C1  C5  C8  C10  C15  C16  C17  C18  C20  C21  C22  C23  C29  C31  C32  C37  C38  C41  C42  C43  C44  C45  C47  C60  C62  C64  C72  C74  C75  C80 C82 C83,Capacitor,0.1uF,30,Digikey,490-4789-1-ND,Murata Electronics North America,GCM21BR72A104KA37L,805,Surface-Mount
+15,C46  C50  C52  C55  C56  C57  C58  C65  C67  C68  C69  C70  C76,Capacitor,1uF,13,Digikey,490-5320-1-ND,Murata Electronics North America,GCM21BR7YA105KA55L,805,Surface-Mount
+16,FS1,Fuse SMT - C1Q 3A,,1,Digikey,507-1082-1-ND,Bel Fuse Inc,C1Q 3,1206,Surface-Mount
+17,C7  C25,Capacitor,0.022uF,2,Digikey,587-1121-1-ND,Taiyo Yuden,GMK212SD223JG-T,805,Surface-Mount
+18,C12  C34,Capacitor,39pF,2,Digikey,1284-1052-1-ND,American Technical Ceramics,600F390FT250XT,805,Surface-Mount
+19,J1  J3  J4  J5  J6,CONN SMA JACK R/A 50 OHM PCB,,5,Digikey,A97593-ND,TE Connectivity,5-1814400-1,5-1814400-1,Through-Hole
+20,L3  L6,Inductor,82nH,2,Digikey,A103788CT-ND,TE Connectivity,4-1624113-4,805,Surface-Mount
+21,U5,AD9854ASTZ,,1,Digikey,AD9854ASTZ-ND,Analog Devices Inc,AD9854ASTZ,LQFP-80,Surface-Mount
+22,U3  U6,ADP3338,,2,Digikey,ADP3338AKCZ-3.3RL7CT-ND,Analog Devices Inc,ADP3338AKCZ-3.3RL7,SOT223-3,Surface-Mount
+23,J2  J7,Tio Backplane connector,,2,Samtec,CLT-125-02-F-D,Samtec,CLT-125-02-F-D,USER,Surface-Mount
+24,L1  L2  L4  L5,Inductor,68nH,4,Digikey,CW201212-68NJCT-ND,Bourns Inc.,CW201212-68NJ,805,Surface-Mount
+25,U10,CMOD S6,,1,Digikey,ED3034-ND,On Shore Technology Inc,SA486000,USER,Through-Hole
+26,U2  U4,LM7171BIMX/NOPB,,2,Digikey,LM7171BIMX/NOPBCT-ND,Texas Instruments,LM7171BIMX/NOPB,SOIC-8,Surface-Mount
+27,U9  U12,MAX3107,,2,Digikey,MAX3107EAG+-ND,Maxim Integrated,MAX3107EAG+,SSOP-34,Surface-Mount
+28,U8  U11,MAX3160,,2,Digikey,MAX3160CAP+-ND,Maxim Integrated,MAX3160CAP+,SSOP-20,Surface-Mount
+29,U1,MC100LVEL16DG,,1,Digikey,MC100LVEL16DGOS-ND,ON Semiconductor,MC100LVEL16DG,SOIC 8,Surface-Mount
+30,R3  R6,Resistor,0R0,2,Digikey,P0.0ACT-ND,Panasonic Electronic Components,ERJ-6GEY0R00V,805,Surface-Mount
+31,R16  R24 ,Resistor,1K,2,Digikey,P1.00KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1001V,805,Surface-Mount
+32,R17 R25,Resistor,22K,2,Digikey,P22KACT-ND ,Panasonic Electronic Components,ERJ-6GEYJ223V,805,Surface-Mount
+33,R12,Resistor,1K3,1,Digikey,P1.30KCCT-ND,Panasonic Electronic Components,ERJ-6ENF1301V,805,Surface-Mount
+34,R1,Resistor,1.6K,1,Digikey,P1.60KHCT-ND,Panasonic Electronic Components,ERJ-3EKF1601V,603,Surface-Mount
+35,R5,Resistor,2k,1,Digikey,P2.00KCCT-ND,Panasonic Electronic Components,ERJ-6ENF2001V,805,Surface-Mount
+36,R18,Resistor,3K92,1,Digikey,P3.92KCCT-ND,Panasonic Electronic Components,ERJ-6ENF3921V,805,Surface-Mount
+37,R7  R8,Resistor,5.1K,2,Digikey,P5.10KHCT-ND,Panasonic Electronic Components,ERJ-3EKF5101V,603,Surface-Mount
+38, R20   R23  R26  R27,Resistor,49R9,6,Digikey,P51ADCT-ND,Panasonic Electronic Components,ERJ-P06J510V,805,Surface-Mount
+39,R2  R4,Resistor,649R0,2,Digikey,P649HCT-ND,Panasonic Electronic Components,ERJ-3EKF6490V,603,Surface-Mount
+40,R28  R29,Resistor,100R,2,Digikey,P16057CT-ND,Panasonic Electronic Components,ERJ-P06F1000V,805,Surface-Mount
+41,R33  R34  R35  R36,Resistor,120R0,4,Digikey,RMCF2512JT120RCT-ND,Stackpole Electronics Inc,RMCF2512JT120R,2512,Surface-Mount
+42,R13  R14,Resistor,49.4k,2,Digikey,RNCP0805FTD49R9CT-ND,Stackpole Electronics Inc,RNCP0805FTD49R9,805,Surface-Mount
+43,R11  R22,Resistor,75K,2,Digikey,RR12P75.0KDCT-ND,Susumu,RR1220P-753-D,805,Surface-Mount
+44,CONN1  CONN2,DB9 Right angle connector,,2,Digikey,S9575-ND,Sullins Connector Solutions,SDS107-PRW1-M09-SN63-11,SDS107-PRW1-M09-SN63-11,Through-Hole
+45,Y1,Oscillator,,1,Digikey,SER2843CT-ND,EPSON,SG-636PCE 30.0000MC0:ROHS,SOJ-4,Surface-Mount
+46,XTAL1  XTAL2,XTAL,N/U,2,N/U,N/U,N/U,N/U,N/U,Surface-Mount
+,,--------------------------------------------------------------------------------------------------------------------------------------,,,,,,,,
+,,,,158,,,,,,

@@ -1,0 +1,7 @@
+Index,Component,Qty,Distributor,Distributor Part Number,Manufacturer,Manufacturer_Part_Number
+,----------------------------------,,,,,
+--------------------------- If not last card on stack ---------------------------,,,,,,
+1,Backplane connector 1.5cm spacer,1,Samtec,TW-25-04-G-D-410-072,Samtec,TW-25-04-G-D-410-072
+2,HEX STANDOFF M3 BRASS 15MM,4,Digikey,952-1506-ND,Harwin Inc,R30-3001502
+--------------------------- If last card on the stack ---------------------------,,,,,,
+3,MACHINE SCREW PAN PHILLIPS M3,4,Digikey,335-1149-ND,APM Hexseal,RM3X8MM 2701
