@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=D:\git\opentekhnia\Tio\FPGA\AIO\Top.ncd
-OUTFILE=D:\git\opentekhnia\Tio\FPGA\AIO\Top.bit
-FAMILY=Spartan6
-PART=xc6slx4-2cpg196
-WORKINGDIR=D:\git\opentekhnia\Tio\FPGA\AIO
-LICENSE=WebPack
-USER_INFO=210927808_0_0_320
