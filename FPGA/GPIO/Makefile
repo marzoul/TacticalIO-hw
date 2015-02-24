@@ -79,6 +79,7 @@ Top.ncd: Top_map.ncd Top.pcf
 	$(MAKE) drc
 
 # Design Rule Check
+# .tdr is report file
 # .drc is log file
 drc: Top.ncd Top.pcf
 	drc -z Top.ncd Top.pcf

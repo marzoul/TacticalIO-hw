@@ -46,6 +46,7 @@ par_usage_statistics.html
 *_summary.html
 *_summary.xml
 *.syr
+*.tdr
 *.twr
 *.twx
 *.unroutes
