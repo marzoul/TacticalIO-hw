@@ -15,15 +15,14 @@
 # _map.ngm: The NCD and NGM files produced by map are for guiding.
 
 SRC = \
-	../Lib/pattern_generator.vhd \
-	remote_sources/_/Lib/FIFO.vhd \
-	output.vhd \
+	../Lib/spi_master.vhd \
+	../Lib/FIFO.vhd \
 	../Lib/spi_slave_gpio.vhd \
-	gpio_protocol_data_decode.vhd \
-	remote_sources/_/Lib/time_sync.vhd \
-	remote_sources/_/Lib/clk_binary_divider.vhd \
-	gpio_spi_protocol.vhd \
+	aio_protocol_data_decode.vhd \
+	../Lib/time_sync.vhd \
+	../Lib/clk_binary_divider.vhd \
 	clk_mult_100mhz.vhd \
+	aio_spi_protocol.vhd \
 	Top.vhd
 
 .PHONY: default xst ngdbuild map par drc trce bitgen promgen
@@ -35,7 +34,7 @@ ngdbuild: Top.ngd
 map: Top_map.ncd
 par: Top.ncd
 bitgen: Top.bit
-promgen: GPIO_PROM.mcs
+promgen: AIO_PROM.mcs
 
 
 
@@ -54,8 +53,8 @@ Top.ngc: $(SRC) Top.prj Top.xst
 # .ucf is user constraints file
 # _ngdbuild.xrpt is XML report file for ISE
 # .ngc => .ngd
-Top.ngd: Top.ngc GPIO.ucf Cmod_S6_master.ucf
-	ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GPIO.ucf -uc Cmod_S6_master.ucf -p xc6slx4-cpg196-2 Top.ngc Top.ngd
+Top.ngd: Top.ngc AIO.ucf Cmod_S6_master.ucf
+	ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Cmod_S6_master.ucf -uc AIO.ucf -p xc6slx4-cpg196-2 Top.ngc Top.ngd
 
 # Map operation
 # _map.map is log file
@@ -88,7 +87,7 @@ drc: Top.ncd Top.pcf
 # .ptwx .twx is XML report for ISE?
 # .ncd .pcf .ucf => .twx
 trce:
-	trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Top.twx Top.ncd -o Top.twr Top.pcf -ucf GPIO.ucf -ucf Cmod_S6_master.ucf
+	trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Top.twx Top.ncd -o Top.twr Top.pcf -ucf Cmod_S6_master.ucf -ucf AIO.ucf
 
 # Bitstream generation with bitgen
 # _bitgen.xwbt is XML status file for ISE
@@ -101,7 +100,7 @@ Top.bit: Top.ut Top.ncd
 # .cfi is status file for ISE?
 # .prm is log file
 # .bit => .mcs
-GPIO_PROM.mcs: Top.bit
-	promgen -w -p mcs -c FF -o ./GPIO_PROM -s 4096 -u 0000 ./top.bit -spi
+AIO_PROM.mcs: Top.bit
+	promgen -w -p mcs -c FF -o ./AIO_PROM -s 4096 -u 0000 Top.bit -spi
 
 
