@@ -8,6 +8,10 @@ fifo_buf.vhd
 fifo_buf.ucf
 fifo_buf.xdc
 fifo_buf
+uart_clk.vhd
+uart_clk.ucf
+uart_clk.xdc
+uart_clk
 
 *_flist.txt
 *_xmdf.tcl

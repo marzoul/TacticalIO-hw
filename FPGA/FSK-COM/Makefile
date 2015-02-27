@@ -44,13 +44,17 @@ promgen: FSCK_COM_PROM.mcs
 # .cgc seems to be IP-XACT of generated stuff
 # .cgp is project file
 # .xco is description of cores to generate
+
+# Note: this also generates a .ngc, needed for xst step
 dp_ram_8x256.vhd: dp_ram_8x256.xco Top.cgp
 	coregen -intstyle ise -p Top.cgp -b dp_ram_8x256.xco
 
+# Note: this also generates a .ngc, needed for xst step
 fifo_buf.vhd: fifo_buf.xco Top.cgp
 	coregen -intstyle ise -p Top.cgp -b fifo_buf.xco
 
-# Note: Nothing about the core uart_clk seems to be used
+uart_clk.vhd: uart_clk.xco Top.cgp
+	coregen -intstyle ise -p Top.cgp -b uart_clk.xco
 
 # Logic synthesis with xst
 # .xst is parameter file
@@ -58,7 +62,7 @@ fifo_buf.vhd: fifo_buf.xco Top.cgp
 # _xst.xrpt is XML report file for ISE
 # .prj is list of HDL files
 # .vhd => .ngc
-Top.ngc: $(SRC) Top.prj Top.xst dp_ram_8x256.ngc fifo_buf.ngc
+Top.ngc: $(SRC) Top.prj Top.xst
 	mkdir -p xst/projnav.tmp
 	xst -intstyle ise -ifn Top.xst -ofn Top.syr
 
