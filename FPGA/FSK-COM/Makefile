@@ -40,13 +40,23 @@ promgen: FSCK_COM_PROM.mcs
 
 
 
+# Coregen stuff
+# .cgc seems to be IP-XACT of generated stuff
+# .cgp is project file
+# .xco is description of cores to generate
+dp_ram_8x256.vhd: dp_ram_8x256.xco Top.cgp
+	coregen -intstyle ise -p Top.cgp -b dp_ram_8x256.xco
+
+fifo_buf.vhd: fifo_buf.xco Top.cgp
+	coregen -intstyle ise -p Top.cgp -b fifo_buf.xco
+
 # Logic synthesis with xst
 # .xst is parameter file
 # .syr is log file
 # _xst.xrpt is XML report file for ISE
 # .prj is list of HDL files
 # .vhd => .ngc
-Top.ngc: $(SRC) Top.prj Top.xst
+Top.ngc: $(SRC) Top.prj Top.xst dp_ram_8x256.ngc fifo_buf.ngc
 	mkdir -p xst/projnav.tmp
 	xst -intstyle ise -ifn Top.xst -ofn Top.syr
 
