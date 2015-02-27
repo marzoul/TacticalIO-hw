@@ -1,8 +1,0 @@
-INTSTYLE=impact
-INFILE=D:\git\opentekhnia\Tio\FPGA\FSK-COM\impact.xsl
-OUTFILE=D:\git\opentekhnia\Tio\FPGA\FSK-COM\impact.xsl
-FAMILY=Single
-PART=Single
-WORKINGDIR=D:\git\opentekhnia\Tio\FPGA\FSK-COM
-LICENSE=iMPACT
-USER_INFO=iMPACT

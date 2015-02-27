@@ -1,7 +1,0 @@
-Storage Target: SPI Flash Single FPGA
-Auto Select Storage Device
-FF
-FSK_COM_PROM
-D:\git\opentekhnia\Tio\FPGA\FSK-COM\
-
-MCS

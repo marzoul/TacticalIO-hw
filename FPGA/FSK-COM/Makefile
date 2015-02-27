@@ -50,6 +50,8 @@ dp_ram_8x256.vhd: dp_ram_8x256.xco Top.cgp
 fifo_buf.vhd: fifo_buf.xco Top.cgp
 	coregen -intstyle ise -p Top.cgp -b fifo_buf.xco
 
+# Note: Nothing about the core uart_clk seems to be used
+
 # Logic synthesis with xst
 # .xst is parameter file
 # .syr is log file

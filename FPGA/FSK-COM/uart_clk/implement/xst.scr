@@ -1,9 +1,0 @@
-run
--ifmt MIXED
--top uart_clk_exdes
--p xc6slx4-cpg196-2
--ifn xst.prj
--ofn uart_clk_exdes
--keep_hierarchy soft 
--equivalent_register_removal no 
--max_fanout 65535
