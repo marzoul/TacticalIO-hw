@@ -36,7 +36,7 @@ ngdbuild: Top.ngd
 map: Top_map.ncd
 par: Top.ncd
 bitgen: Top.bit
-promgen: FSCK_COM_PROM.mcs
+promgen: FSK_COM_PROM.mcs
 
 
 
@@ -118,7 +118,7 @@ Top.bit: Top.ut Top.ncd
 # .cfi is status file for ISE?
 # .prm is log file
 # .bit => .mcs
-FSCK_COM_PROM.mcs: Top.bit
+FSK_COM_PROM.mcs: Top.bit
 	promgen -w -p mcs -c FF -o ./FSK_COM_PROM -s 4096 -u 0000 Top.bit -spi
 
 
