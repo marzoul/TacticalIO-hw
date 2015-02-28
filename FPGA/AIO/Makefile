@@ -15,14 +15,14 @@
 # _map.ngm: The NCD and NGM files produced by map are for guiding.
 
 SRC = \
-	../Lib/spi_master.vhd \
-	../Lib/FIFO.vhd \
-	../Lib/spi_slave_gpio.vhd \
-	aio_protocol_data_decode.vhd \
-	../Lib/time_sync.vhd \
 	../Lib/clk_binary_divider.vhd \
-	clk_mult_100mhz.vhd \
+	../Lib/FIFO.vhd \
+	../Lib/spi_master.vhd \
+	../Lib/spi_slave_gpio.vhd \
+	../Lib/time_sync.vhd \
+	aio_protocol_data_decode.vhd \
 	aio_spi_protocol.vhd \
+	clk_mult_100mhz.vhd \
 	Top.vhd
 
 .PHONY: default xst ngdbuild map par drc trce bitgen promgen

@@ -16,14 +16,14 @@
 
 SRC = \
 	../Lib/pattern_generator.vhd \
-	remote_sources/_/Lib/FIFO.vhd \
-	output.vhd \
 	../Lib/spi_slave_gpio.vhd \
-	gpio_protocol_data_decode.vhd \
-	remote_sources/_/Lib/time_sync.vhd \
 	remote_sources/_/Lib/clk_binary_divider.vhd \
-	gpio_spi_protocol.vhd \
+	remote_sources/_/Lib/FIFO.vhd \
+	remote_sources/_/Lib/time_sync.vhd \
 	clk_mult_100mhz.vhd \
+	gpio_protocol_data_decode.vhd \
+	gpio_spi_protocol.vhd \
+	output.vhd \
 	Top.vhd
 
 .PHONY: default xst ngdbuild map par drc trce bitgen promgen

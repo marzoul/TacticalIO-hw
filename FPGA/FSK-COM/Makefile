@@ -16,15 +16,15 @@
 
 SRC = \
 	../Lib/phase_accumulator.vhd \
-	remote_sources/_/Lib/spi_master.vhd \
-	dp_ram_8x256.vhd \
 	../Lib/spi_slave_gpio.vhd \
-	fsk_com_protocol_data_decode.vhd \
-	uart_clk.vhd \
+	remote_sources/_/Lib/spi_master.vhd \
 	remote_sources/_/Lib/time_sync.vhd \
 	remote_sources/_/Lib/clk_binary_divider.vhd \
-	fsk_com_spi_protocol.vhd \
 	clk_mult_100mhz.vhd \
+	dp_ram_8x256.vhd \
+	fsk_com_protocol_data_decode.vhd \
+	fsk_com_spi_protocol.vhd \
+	uart_clk.vhd \
 	Top.vhd
 
 .PHONY: default xst ngdbuild map par drc trce bitgen promgen

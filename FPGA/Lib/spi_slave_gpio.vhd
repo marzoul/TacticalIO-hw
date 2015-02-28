@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    20:20:05 11/03/2014 
--- Design Name: 
--- Module Name:    cs_dmux - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- Company:
+-- Engineer:
 --
--- Dependencies: 
+-- Create Date:    20:20:05 11/03/2014
+-- Design Name:
+-- Module Name:    cs_dmux - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
 --
--- Revision: 
+-- Dependencies:
+--
+-- Revision:
 -- Revision 0.01 - File Created
--- Additional Comments: 
+-- Additional Comments:
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -37,16 +37,19 @@ entity spi_slave_gpio is
 	 Generic (
 		byte_size : positive := 8
 		);
-    Port ( 
+    Port (
 				-- System clock
 				CLK : in  STD_LOGIC;
-				
+
 				-- SPI Interface
 				MOSI : in STD_LOGIC;
 				MISO : inout STD_LOGIC;
 				SCK : in STD_LOGIC;
 				CS : in STD_LOGIC;
-				
+
+				-- Force MISO to 'Z'
+				FORCEZ : in STD_LOGIC;
+
 				-- Parallel interface
 				BYTE_RX : out STD_LOGIC_VECTOR(byte_size-1 downto 0);
 				BYTE_TX : in STD_LOGIC_VECTOR(byte_size-1 downto 0);
@@ -94,7 +97,7 @@ signal cs_filter_d_s : STD_LOGIC;
 begin
 
 -- MISO pin
-MISO <= 'Z' when (CS = '1')else miso_s;
+MISO <= 'Z' when CS = '1' or FORCEZ = '1' else miso_s;
 
 -- Assign the byte_count_s to the output
 BYTE_RX_COUNT <= conv_std_logic_vector(byte_count_s,8);
@@ -104,25 +107,25 @@ begin
 
 	-- Update chip select on rising edge of the system clock only
 	if(rising_edge(CLK) ) then
-		
+
 		-- Buf the CS signal to avoid metastability
 		cs_d_s(0) <= CS;
 		cs_d_s(1) <= cs_d_s(0);
 		cs_d_s(2) <= cs_d_s(1);
-		
+
 		-- CS filter
 		cs_filter_s <= cs_d_s(0) or cs_d_s(1) or cs_d_s(2);
 		cs_filter_d_s <= cs_filter_s;
-		
+
 		miso_s <= out_shift_reg_s(byte_size-1);
-		
+
 		-- Falling edge detect of CS
 		if(cs_filter_s = '0' and cs_filter_d_s = '1') then
 			cs_falling_edge_s <= '1';
 		else
 			cs_falling_edge_s <= '0';
 		end if;
-		
+
 		-- Raising edge detect of CS
 		if(cs_filter_s = '1' and cs_filter_d_s = '0') then
 			cs_raising_edge_s <= '1';
@@ -139,21 +142,21 @@ begin
 		-- filter the SCK a little bit
 		sck_filter_s <= sck_d_s(0) or sck_d_s(1) or sck_d_s(2);
 		sck_filter_d_s <= sck_filter_s;
-		
+
 		-- MOSI delay
 		mosi_d_s(0) <= MOSI;
 		mosi_d_s(1) <= mosi_d_s(0);
 		mosi_d_s(2) <= mosi_d_s(1);
 		mosi_d_s(3) <= mosi_d_s(2);
-		
-		
+
+
 		-- Falling edge detect of SCK (Do not add to much delay here, or the data will not be read at time when the master read it)
 		if(sck_filter_s = '0' and sck_filter_d_s = '1') then
 			sck_falling_edge_s <= '1';
 		else
 			sck_falling_edge_s <= '0';
 		end if;
-		
+
 		-- Raising edge detect of SCK
 		if(sck_filter_s = '1' and sck_filter_d_s = '0') then
 			sck_raising_edge_s <= '1';
@@ -161,7 +164,7 @@ begin
 			sck_raising_edge_s <= '0';
 		end if;
 
-		
+
 		-- Init state machine on CS low detect ad init bitcount
 		if(cs_falling_edge_s = '1') then
 			state_s <= init;
@@ -183,7 +186,7 @@ begin
 		else
 			byte_tx_load_d_s(0) <= '0';
 		end if;
-		
+
 		-- Delay array
 		byte_tx_load_d_s(1) <= byte_tx_load_d_s(0);
 		byte_tx_load_d_s(2) <= byte_tx_load_d_s(1);
@@ -195,7 +198,7 @@ begin
 		if(byte_tx_load_d_s(5) = '1') then
 			out_shift_reg_s <= BYTE_TX;		-- Latch the tx byte register
 		end if;
-		
+
 		-- Transmission state machine
 		if(cs_filter_s = '0') then
 
@@ -207,7 +210,7 @@ begin
 			CASE state_s IS
 
 				WHEN init=>
-				
+
 					state_s <= outputByte; 				-- Process to next byte
 					bitcount_s <= (others => '0'); 	-- init bit counter
 					byte_rx_ready_pulse_s <= '0';		-- Clear the byte ready flag
@@ -221,7 +224,7 @@ begin
 						out_shift_reg_s <= out_shift_reg_s(byte_size-2 downto 0) & '0';	-- Reply with the content from the tx register
 						bitcount_s <= bitcount_s + '1';												-- Increment the bit counter
 					end if;
-					
+
 					-- Falling edge of SCK
 					if(sck_falling_edge_s = '1') then
 						-- shift output data here
@@ -234,7 +237,7 @@ begin
 							byte_rx_ready_pulse_s <= '1';				-- Publish the data ready flag
 						end if;
 					end if;
-					
+
 			END CASE;
 		end if;
 	end if;

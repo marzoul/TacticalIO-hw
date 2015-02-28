@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    20:20:05 11/03/2014 
--- Design Name: 
--- Module Name:    cs_dmux - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- Company:
+-- Engineer:
 --
--- Dependencies: 
+-- Create Date:    20:20:05 11/03/2014
+-- Design Name:
+-- Module Name:    cs_dmux - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
 --
--- Revision: 
+-- Dependencies:
+--
+-- Revision:
 -- Revision 0.01 - File Created
--- Additional Comments: 
+-- Additional Comments:
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -34,22 +34,22 @@ entity fsk_com_spi_protocol is
 	 Generic (
 				sync_time_size : POSITIVE := 16
 	 );
-    Port ( 
+    Port (
 				-- System clock
 				CLK : in  STD_LOGIC;
-				
+
 				-- System reset signal
 				RESET : in STD_LOGIC;
-				
+
 				-- SPI Interface
 				MOSI : in STD_LOGIC;
 				MISO : inout STD_LOGIC;
 				SCK : in STD_LOGIC;
 				CS : in STD_LOGIC;
-				
+
 				-- Time reference
 				SYNC_TIME : in STD_LOGIC_VECTOR(sync_time_size-1 downto 0);
-				
+
 				-- Time feed-back pulse (named as the fault signal in the system)
 				FAULT				: inout  STD_LOGIC;
 
@@ -106,16 +106,19 @@ component spi_slave_gpio
 	 Generic (
 		byte_size : positive := 8
 		);
-    Port ( 
+    Port (
 				-- System clock
 				CLK : in  STD_LOGIC;
-				
+
 				-- SPI Interface
 				MOSI : in STD_LOGIC;
 				MISO : inout STD_LOGIC;
 				SCK : in STD_LOGIC;
 				CS : in STD_LOGIC;
-				
+
+				-- Force MISO to 'Z'
+				FORCEZ : in STD_LOGIC;
+
 				-- Parallel interface
 				BYTE_RX : out STD_LOGIC_VECTOR(byte_size-1 downto 0);
 				BYTE_TX : in STD_LOGIC_VECTOR(byte_size-1 downto 0);
@@ -128,16 +131,16 @@ component fsk_com_protocol_data_decode
 	 Generic (
 				sync_time_size : POSITIVE := 16
 	 );
-    Port ( 
+    Port (
 				-- System clock
 				CLK : in  STD_LOGIC;
-				
+
 				-- System reset signal
 				RESET : in STD_LOGIC;
-				
+
 				-- Time reference
 				SYNC_TIME : in STD_LOGIC_VECTOR(sync_time_size-1 downto 0);
-				
+
 				-- SPI Interface from cpu
 				MOSI : in STD_LOGIC;
 				SCK : in STD_LOGIC;
@@ -146,12 +149,12 @@ component fsk_com_protocol_data_decode
 				-- Protocol interface
 				COMMAND : in STD_LOGIC_VECTOR(7 downto 0);
 				COMMAND_READY : in STD_LOGIC;
-				
+
 				BYTE_RX : in STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_TX : out STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_RX_COUNT : in STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_RX_READY_PULSE : in STD_LOGIC;
-				
+
 				-- MISO source selector
 				MISO_SRC_SEL : out STD_LOGIC_VECTOR(1 downto 0);
 
@@ -250,8 +253,8 @@ signal command_ready_s : STD_LOGIC;
 -- Chip select clocking signal to detect edge
 signal cs_d_s : STD_LOGIC_VECTOR(2 downto 0);
 signal cs_s : STD_LOGIC; -- buffered chip select signal
-signal cs_falling_edge_s : STD_LOGIC; 
-signal cs_raising_edge_s : STD_LOGIC; 
+signal cs_falling_edge_s : STD_LOGIC;
+signal cs_raising_edge_s : STD_LOGIC;
 
 signal reset_status_s : STD_LOGIC := '0';
 signal alive_indicator_s : STD_LOGIC;
@@ -278,16 +281,19 @@ U1 : spi_slave_gpio
 	 Generic map(
 		byte_size => 8
 		)
-    Port map( 
+    Port map(
 		-- System clock
 		CLK => CLK,
-		
+
 		-- SPI Interface
 		MOSI => MOSI,
 		MISO => miso_spi_slave_gpio_s,
 		SCK => SCK,
 		CS => CS,
-		
+
+		-- Force MISO to 'Z'
+		FORCEZ => '0',
+
 		-- Parallel interface
 		BYTE_RX => byte_rx_s,
 		BYTE_TX => byte_tx_s,
@@ -299,16 +305,16 @@ U2 : fsk_com_protocol_data_decode
 	 Generic map(
 				sync_time_size => sync_time_size
 	 )
-    Port map( 
+    Port map(
 				-- System clock
 				CLK => CLK,
-				
+
 				-- System reset signal
 				RESET => RESET,
-				
+
 				-- Time reference
 				SYNC_TIME => SYNC_TIME,
-				
+
 				-- SPI Interface from cpu
 				MOSI => MOSI,
 				SCK => SCK,
@@ -317,15 +323,15 @@ U2 : fsk_com_protocol_data_decode
 				-- Protocol interface
 				COMMAND => command_s,
 				COMMAND_READY => command_ready_s,
-				
+
 				BYTE_RX => byte_rx_s,
 				BYTE_TX => byte_tx_specific_protocol_s,
 				BYTE_RX_COUNT => byte_rx_count_s,
 				BYTE_RX_READY_PULSE => byte_rx_ready_pulse_s,
-				
+
 				-- MISO source selector
 				MISO_SRC_SEL => miso_src_sel_s,
-				
+
 				-- Time feed-back pulse (named as the fault signal in the system)
 				FAULT			=> FAULT,
 
@@ -401,7 +407,7 @@ begin
 
 	-- Update chip select on rising edge of the system clock only
 	if(rising_edge(CLK) ) then
-		
+
 			-- Reset signal
 			if(RESET = '1') then
 				state_s <= idle;
@@ -419,7 +425,7 @@ begin
 				cs_d_s(0) <= CS;
 				cs_d_s(1) <= cs_d_s(0);
 				cs_d_s(2) <= cs_d_s(1);
-				
+
 				-- Chip select falling edge detect
 				if(cs_d_s(2) = '1' and cs_d_s(1) = '0') then
 					cs_falling_edge_s <= '1';
@@ -438,7 +444,7 @@ begin
 				if(cs_falling_edge_s = '1') then
 					state_s <= command;
 				end if;
-						
+
 				-- run the state machine only if the CS is low
 				if(cs_s = '0') then
 					CASE state_s IS
@@ -448,25 +454,25 @@ begin
 						WHEN command=>
 							-- Send the state of the card while the CPU send the command byte
 							byte_tx_s <= card_state_s;
-							
+
 							-- on the receive of the first byte
 							if(byte_rx_ready_pulse_s = '1') then
 								command_s <= byte_rx_s; -- latch the command
 								command_ready_s <= '1';
 								state_s <= data;
 							end if;
-							
+
 						WHEN data=>
 							-- Assign the data from the specific protocol block now
 							byte_tx_s <= byte_tx_specific_protocol_s;
-							
+
 					END CASE;
 				else -- if(cs_s = '0') then
 					-- When the CS goes up, place the state machine to idle position
 					state_s <= idle;
 					-- Clear the command ready flag
 					command_ready_s <= '0';
-					
+
 				end if; -- if(cs_s = '0') then
 
 			end if; -- if(RESET = '1') then
