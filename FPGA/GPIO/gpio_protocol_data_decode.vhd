@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    20:20:05 11/03/2014 
--- Design Name: 
--- Module Name:    gpio_protocol_data_decode - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- Company:
+-- Engineer:
 --
--- Dependencies: 
+-- Create Date:    20:20:05 11/03/2014
+-- Design Name:
+-- Module Name:    gpio_protocol_data_decode - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
 --
--- Revision: 
+-- Dependencies:
+--
+-- Revision:
 -- Revision 0.01 - File Created
--- Additional Comments: 
+-- Additional Comments:
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,25 +22,28 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 
 entity gpio_protocol_data_decode is
-    Port ( 
+    Port (
 				-- System clock
 				CLK 						: in		STD_LOGIC;
-				
+
 				-- System reset signal
 				RESET 					: in 		STD_LOGIC;
-				
+
 				-- Time reference
 				SYNC_TIME 				: in 		STD_LOGIC_VECTOR(31 downto 0);
-				
+
 				-- Protocol interface
 				COMMAND 					: in 		STD_LOGIC_VECTOR(7 downto 0);
 				COMMAND_READY 			: in 		STD_LOGIC;
-				
+
+				FORCEZ						: out STD_LOGIC;
+
 				BYTE_RX 					: in 		STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_TX 					: out 	STD_LOGIC_VECTOR(7 downto 0);
+				BYTE_TX_IS_STATUS : out STD_LOGIC;
 				BYTE_RX_COUNT 			: in 		STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_RX_READY_PULSE 	: in 		STD_LOGIC;
-				
+
 				-- Time feed-back pulse (named as the fault signal in the system)
 				FAULT						: inout  STD_LOGIC;
 
@@ -48,7 +51,7 @@ entity gpio_protocol_data_decode is
 				VALID_COMMAND_RX 		: out 	STD_LOGIC; -- High pulse at each time a valid command has been parsed
 				INCOMPLETE_COMMAND_RX: out 	STD_LOGIC; -- High pulse at each time a incompleted command has been received
 				INVALID_COMMAND_RX	: out 	STD_LOGIC; -- High pulse at each time a invalid command has been parsed
-				
+
 				-- User led control
 				LED1						: out 	STD_LOGIC;
 				LED2						: out 	STD_LOGIC;
@@ -56,7 +59,7 @@ entity gpio_protocol_data_decode is
 
 				-- BOARD IO
 
-				OUTPUT					: out 	STD_LOGIC_VECTOR(15 downto 0); 
+				OUTPUT					: out 	STD_LOGIC_VECTOR(15 downto 0);
 				INPUT						: in 		STD_LOGIC_VECTOR(15 downto 0);
 
 				-- SPARE IO
@@ -75,24 +78,24 @@ component fifo
 			ALMST_F	: integer 	:= 3;					-- fifo flag for almost full regs away from empty fifo
 			ALMST_E	: integer	:= 3						-- fifo regs away from empty fifo
 			);
-	Port ( 
+	Port (
 			clk 					: in std_logic;
 			n_reset 				: in std_logic;
-			rd_en 				: in std_logic; 		-- read enable 
-			wr_en					: in std_logic; 		-- write enable 
-			data_in 				: in std_logic_vector(DATA_W- 1 downto 0); 
-			data_out				: out std_logic_vector(DATA_W- 1 downto 0); 
+			rd_en 				: in std_logic; 		-- read enable
+			wr_en					: in std_logic; 		-- write enable
+			data_in 				: in std_logic_vector(DATA_W- 1 downto 0);
+			data_out				: out std_logic_vector(DATA_W- 1 downto 0);
 			data_count			: out std_logic_vector(ADDR_W downto 0);
-			empty 				: out std_logic; 
+			empty 				: out std_logic;
 			full					: out std_logic;
-			almst_empty 		: out std_logic; 
-			almst_full 			: out std_logic; 
+			almst_empty 		: out std_logic;
+			almst_full 			: out std_logic;
 			err					: out std_logic
 );
 end component;
 
 component output_block
-    Port ( 
+    Port (
 				-- System clock
 				CLK : in  STD_LOGIC;
 
@@ -113,7 +116,7 @@ component output_block
 				OUT14_SELECT : in STD_LOGIC_VECTOR(1 downto 0);
 				OUT15_SELECT : in STD_LOGIC_VECTOR(1 downto 0);
 				OUT16_SELECT : in STD_LOGIC_VECTOR(1 downto 0);
-				
+
 				-- Digital output
 				DIGITAL_OUTPUT_DATA : in STD_LOGIC_VECTOR(15 downto 0);
 
@@ -191,7 +194,7 @@ signal gpio_led_control_register_s : STD_LOGIC_VECTOR(7 downto 0); -- Led contro
 signal pg_fifo_rd_en_s : STD_LOGIC;
 signal pg_fifo_wr_en_s : STD_LOGIC;
 signal pg_fifo_data_in_s : std_logic_vector(97 downto 0); -- pg select+  time stamp + frequency word + offset word
-signal pg_fifo_data_out_s : std_logic_vector(97 downto 0); 
+signal pg_fifo_data_out_s : std_logic_vector(97 downto 0);
 signal pg_fifo_empty_flag_s : STD_LOGIC;
 signal pg_fifo_full_flag_s : STD_LOGIC;
 
@@ -263,7 +266,7 @@ signal out6_select_s : STD_LOGIC_VECTOR(1 downto 0);
 
 -- Digital output value
 signal digital_output_data_s : STD_LOGIC_VECTOR(15 downto 0);
- 
+
 --signal output_s : STD_LOGIC_VECTOR(15 downto 0);
 
 begin
@@ -294,7 +297,7 @@ PG_FIFO : fifo
 			ALMST_F	=> 3,					-- fifo flag for almost full regs away from empty fifo
 			ALMST_E	=> 3						-- fifo regs away from empty fifo
 			)
-	Port map( 
+	Port map(
 			clk 					=> CLK,
 			n_reset 				=> not RESET,
 			rd_en 				=> pg_fifo_rd_en_s,
@@ -310,7 +313,7 @@ PG_FIFO : fifo
 );
 
 U1 : output_block
-    Port map( 
+    Port map(
 				-- System clock
 				CLK									=> CLK,
 
@@ -331,7 +334,7 @@ U1 : output_block
 				OUT14_SELECT 						=> "00",
 				OUT15_SELECT 						=> "00",
 				OUT16_SELECT 						=> "00",
-				
+
 				-- Digital output
 				DIGITAL_OUTPUT_DATA 				=> digital_output_data_s,
 
@@ -422,12 +425,12 @@ begin
 					pg_fifo_wr_en_s <= '0';
 					pg_fifo_rd_en_s <= '0';
 			else
-	
-	
+
+
 			-- Delay the command ready signal to have a edge detect
 			command_ready_d_s <= COMMAND_READY;
 
-			
+
 			-- Command validity detect
 			-- Detect falling edge of command ready
 			if(command_ready_d_s = '1' and COMMAND_READY = '0') then
@@ -445,14 +448,14 @@ begin
 			else -- Clear the flags rest of the time
 				valid_command_rx_s <= '0';
 			end if;
-			
+
 			-- Clear the invalid flags on a sucessful command received
 			if(valid_command_rx_s = '1') then
 				invalid_command_rx_s <= '0';
 				incomplete_command_rx_s <= '0';
 			end if;
-		
-			
+
+
 			-- Action to perform on command start (latch inputs, reset stuff...)
 			if(command_ready_d_s = '0' and COMMAND_READY = '1') then
 				sync_time_read_latch_s <= SYNC_TIME; -- Latch the time for a read in the spi command
@@ -495,7 +498,7 @@ begin
 								-- Rise the load signal
 								pg2_offset_load_en_s <= '1';
 								pg2_phase_accumulator_load_en_s <= '1';
-							
+
 							WHEN "10" =>
 								-- Append the data to the right buffer
 								pg3_phase_accumulator_s <= pg_fifo_data_out_s(63 downto 32);
@@ -523,7 +526,7 @@ begin
 					if(pg_fifo_empty_flag_s = '0') then
 						pg_state_s <= extract;
 					end if;
-					
+
 				WHEN extract=>
 					pg_fifo_rd_en_s <= '1';
 					pg_state_s <= time_and_busy_check;
@@ -531,7 +534,7 @@ begin
 					-- Clear the fifo output eable signal (the data is still valid at it's output, but no more data is pump out)
 					pg_fifo_rd_en_s <= '0';
 					pg_fifo_out_ready_s <= '1';
-					
+
 				WHEN send_complete=>
 					pg_fifo_out_ready_s <= '0';
 					pg_state_s <= idle;
@@ -542,7 +545,7 @@ begin
 				pg1_pattern_load_en_s <= '0';
 			end if;
 
-			
+
 			if(pg2_pattern_load_en_s = '1') then
 				pg2_pattern_load_en_s <= '0';
 			end if;
@@ -553,12 +556,41 @@ begin
 			end if;
 
 
+				-- Default value: inhibit SPI MISO
+				FORCEZ <= '1';
+				-- Default value for the signal to send the status register
+				BYTE_TX_IS_STATUS <= '0';
 
 				-- if the command is now ready
 				if(COMMAND_READY = '1') then
 					CASE COMMAND IS
+
+						-- Commands that are received by multiple slaves simultaneously
+
+						-- Read the status registers of the cards (one byte per card)
+						-- This card position is 3
+						WHEN "10000000" =>
+							-- No receive data
+
+							-- Set the reply data at the right time
+							if (unsigned(BYTE_RX_COUNT) = 3) then
+								-- Authorize output on SPI MISO
+								FORCEZ <= '0';
+								-- Indicate that the status register has to be sent
+								BYTE_TX_IS_STATUS <= '1';
+								-- Command check
+								if(BYTE_RX_READY_PULSE ='1') then
+									valid_command_completed_s <= '1';
+								end if;
+							end if;
+
+						-- Commands that target only this slave
+
 						WHEN "00000000" => -- Command 0 : Read card ID
 							-- No receive data
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
 
 							-- setup the reply data as the byte counter change (not that you have few clock cycle to setup data (before next byte start to output...)
 							if(unsigned(BYTE_RX_COUNT) = 1) then
@@ -569,7 +601,6 @@ begin
 								BYTE_TX <= conv_std_logic_vector(CARD_MINOR_VERSION,8);
 							end if;
 
-
 							-- Command check
 							if(BYTE_RX_READY_PULSE ='1') then
 								if(unsigned(BYTE_RX_COUNT) = 3) then
@@ -577,15 +608,13 @@ begin
 								end if;
 							end if;
 
-
-
 						WHEN "00000001" => -- Command 1 : Card config register
 							if(BYTE_RX_READY_PULSE ='1') then
 								if(unsigned(BYTE_RX_COUNT) = 1) then
 									gpio_config_register_s <= BYTE_RX;
 								end if;
 							end if;
-							
+
 							-- Nothing to reply
 							BYTE_TX <= (others => '0');
 
@@ -603,10 +632,10 @@ begin
 									gpio_led_control_register_s <= BYTE_RX;
 								end if;
 							end if;
-							
+
 							-- Nothing to reply
 							BYTE_TX <= (others => '0');
-							
+
 							-- Command check
 							if(BYTE_RX_READY_PULSE ='1') then
 								if(unsigned(BYTE_RX_COUNT) = 1) then
@@ -617,7 +646,10 @@ begin
 
 						WHEN "00000011" => -- Command 3 : Read sync time counter
 							-- No data to read
-							
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
 							-- Reply contains the latched sync_time counter
 							if (unsigned(BYTE_RX_COUNT) = 1) then
 								BYTE_TX <= sync_time_read_latch_s(31 downto 24);
@@ -647,8 +679,11 @@ begin
 								elsif (unsigned(BYTE_RX_COUNT) = 2) then
 									gpio_output_data_register_s(7 downto 0) <= BYTE_RX;
 								end if;
-							end if; 
-							
+							end if;
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
 							if (unsigned(BYTE_RX_COUNT) = 1) then
 								BYTE_TX <= gpio_input_data_register_s(15 downto 8);
 							elsif (unsigned(BYTE_RX_COUNT) = 2) then
@@ -665,7 +700,10 @@ begin
 							end if;
 
 						WHEN "00000101" => -- Command 5 : Read inputs GPIO
-							
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
 							if (unsigned(BYTE_RX_COUNT) = 1) then
 								BYTE_TX <= gpio_input_data_register_s(15 downto 8);
 							elsif (unsigned(BYTE_RX_COUNT) = 2) then
@@ -689,7 +727,7 @@ begin
 									pg_pattern_register_select_s <= BYTE_RX(1 downto 0);
 								elsif(unsigned(BYTE_RX_COUNT) = 2) then
 									CASE pg_pattern_register_select_s IS
-										WHEN "00" => 
+										WHEN "00" =>
 											pg1_pattern_s <= BYTE_RX;
 											pg1_pattern_load_en_s <= '1';
 										WHEN "01" =>
@@ -702,8 +740,8 @@ begin
 											-- Nothing
 									END CASE;
 								end if;
-							end if; 
-							
+							end if;
+
 							-- Nothing to reply
 							BYTE_TX <= (others => '0');
 
@@ -749,8 +787,11 @@ begin
 										pg_write_fifo_register_ready_s <= '1';
 									end if;
 								end if;
-							end if; 
-							
+							end if;
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
 							if (unsigned(BYTE_RX_COUNT) = 13) then
 								-- Send the full flag state of the fifo in the LSB. If the full flag is set, the write will not occur
 								BYTE_TX <= "0000000" & pg_fifo_full_flag_latch_s;
@@ -773,8 +814,11 @@ begin
 								elsif (unsigned(BYTE_RX_COUNT) = 2) then
 									gpio_output_config_register1_s(7 downto 0) <= BYTE_RX;
 								end if;
-							end if; 
-							
+							end if;
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+							-- Always send 0
 							BYTE_TX <= (others => '0');
 
 							-- Command check
@@ -783,6 +827,7 @@ begin
 									valid_command_completed_s <= '1';
 								end if;
 							end if;
+
 						WHEN "00001001" => -- Command 9 : PG phase accumulator and offset register for PG x and y
 							-- Check if data received flag is set
 							if(BYTE_RX_READY_PULSE ='1') then
@@ -847,8 +892,11 @@ begin
 										pg_write_fifo_register_ready_s <= '1';
 									end if;
 								end if;
-							end if; 
-							
+							end if;
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
 							if (unsigned(BYTE_RX_COUNT) = 26) then
 								-- Send the full flag state of the fifo in the LSB. If the full flag is set, the write will not occur
 								BYTE_TX <= "0000000" & pg_fifo_full_flag_latch_s;
@@ -863,12 +911,10 @@ begin
 								end if;
 							end if;
 
-
-
 						WHEN OTHERS =>
 							BYTE_TX <= (others => '0');
 							invalid_command_detected_s <= '1';
-						
+
 					END CASE;
 
 				end if; -- if(COMMAND_READY = '1') then

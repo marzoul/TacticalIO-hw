@@ -47,7 +47,7 @@ entity spi_slave_gpio is
 				SCK : in STD_LOGIC;
 				CS : in STD_LOGIC;
 
-				-- Force MISO to 'Z'
+				-- Force MISO to 'Z' (updated for each BYTE_TX)
 				FORCEZ : in STD_LOGIC;
 
 				-- Parallel interface
@@ -78,6 +78,8 @@ signal mosi_d_s : STD_LOGIC_VECTOR(3 downto 0);
 -- Shift register
 signal out_shift_reg_s : STD_LOGIC_VECTOR(byte_size-1 downto 0);
 signal in_shift_reg_s : STD_LOGIC_VECTOR(byte_size-1 downto 0);
+-- Enable output
+signal out_forcez_s : STD_LOGIC := '1';
 
 TYPE STATE_TYPE IS (init,outputByte);
 SIGNAL state_s   : STATE_TYPE;
@@ -97,7 +99,7 @@ signal cs_filter_d_s : STD_LOGIC;
 begin
 
 -- MISO pin
-MISO <= 'Z' when CS = '1' or FORCEZ = '1' else miso_s;
+MISO <= 'Z' when CS = '1' or out_forcez_s = '1' else miso_s;
 
 -- Assign the byte_count_s to the output
 BYTE_RX_COUNT <= conv_std_logic_vector(byte_count_s,8);
@@ -196,7 +198,8 @@ begin
 
 		-- Load the TX data in shift register on rising edge of tx load signal
 		if(byte_tx_load_d_s(5) = '1') then
-			out_shift_reg_s <= BYTE_TX;		-- Latch the tx byte register
+			out_forcez_s <= FORCEZ;      -- Latch the enable signal of tx
+			out_shift_reg_s <= BYTE_TX;  -- Latch the tx byte register
 		end if;
 
 		-- Transmission state machine

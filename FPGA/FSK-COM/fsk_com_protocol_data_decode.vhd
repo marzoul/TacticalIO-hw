@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    20:20:05 11/03/2014 
--- Design Name: 
--- Module Name:    aio_protocol_data_decode - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- Company:
+-- Engineer:
 --
--- Dependencies: 
+-- Create Date:    20:20:05 11/03/2014
+-- Design Name:
+-- Module Name:    aio_protocol_data_decode - Behavioral
+-- Project Name:
+-- Target Devices:
+-- Tool versions:
+-- Description:
 --
--- Revision: 
+-- Dependencies:
+--
+-- Revision:
 -- Revision 0.01 - File Created
--- Additional Comments: 
+-- Additional Comments:
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -23,31 +23,34 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use ieee.std_logic_unsigned.all;
 
 entity fsk_com_protocol_data_decode is
-    Port ( 
+    Port (
 				-- System clock
 				CLK 						: in		STD_LOGIC;
-				
+
 				-- System reset signal
 				RESET 					: in 		STD_LOGIC;
-				
+
 				-- Time reference
 				SYNC_TIME 				: in 		STD_LOGIC_VECTOR(31 downto 0);
-				
+
 				-- SPI Interface from cpu
 				MOSI : in STD_LOGIC;
 				SCK : in STD_LOGIC;
 				CS : in STD_LOGIC;
-				
-				
+
+
 				-- Protocol interface
 				COMMAND 					: in 		STD_LOGIC_VECTOR(7 downto 0);
 				COMMAND_READY 			: in 		STD_LOGIC;
-				
+
+				FORCEZ						: out STD_LOGIC;
+
 				BYTE_RX 					: in 		STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_TX 					: out 	STD_LOGIC_VECTOR(7 downto 0);
+				BYTE_TX_IS_STATUS : out STD_LOGIC;
 				BYTE_RX_COUNT 			: in 		STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_RX_READY_PULSE 	: in 		STD_LOGIC;
-				
+
 				-- MISO source selector
 				MISO_SRC_SEL 			: out STD_LOGIC_VECTOR(1 downto 0);
 
@@ -58,7 +61,7 @@ entity fsk_com_protocol_data_decode is
 				VALID_COMMAND_RX 		: out 	STD_LOGIC; -- High pulse at each time a valid command has been parsed
 				INCOMPLETE_COMMAND_RX: out 	STD_LOGIC; -- High pulse at each time a incompleted command has been received
 				INVALID_COMMAND_RX	: out 	STD_LOGIC; -- High pulse at each time a invalid command has been parsed
-				
+
 				-- User led control
 				LED1						: out 	STD_LOGIC;
 				LED2						: out 	STD_LOGIC;
@@ -138,18 +141,18 @@ END component;
 --			ALMST_F	: integer 	:= 3;					-- fifo flag for almost full regs away from empty fifo
 --			ALMST_E	: integer	:= 3						-- fifo regs away from empty fifo
 --			);
---	Port ( 
+--	Port (
 --			clk 					: in std_logic;
 --			n_reset 				: in std_logic;
---			rd_en 				: in std_logic; 		-- read enable 
---			wr_en					: in std_logic; 		-- write enable 
---			data_in 				: in std_logic_vector(DATA_W- 1 downto 0); 
---			data_out				: out std_logic_vector(DATA_W- 1 downto 0); 
+--			rd_en 				: in std_logic; 		-- read enable
+--			wr_en					: in std_logic; 		-- write enable
+--			data_in 				: in std_logic_vector(DATA_W- 1 downto 0);
+--			data_out				: out std_logic_vector(DATA_W- 1 downto 0);
 --			data_count			: out std_logic_vector(ADDR_W downto 0);
---			empty 				: out std_logic; 
+--			empty 				: out std_logic;
 --			full					: out std_logic;
---			almst_empty 		: out std_logic; 
---			almst_full 			: out std_logic; 
+--			almst_empty 		: out std_logic;
+--			almst_full 			: out std_logic;
 --			err					: out std_logic
 --);
 --end component;
@@ -171,14 +174,14 @@ component phase_accumulator
 	 Generic (
 				phase_accumulator_length  : INTEGER := 32 -- number of bit of the frequency register
 	 );
-    Port ( 
+    Port (
 				CLK : in  STD_LOGIC;
 
 				RESET : in STD_LOGIC;
 
 				PHASE_ACCUMULATOR_LOAD_EN : in STD_LOGIC;
 				PHASE_ACCUMULATOR : in STD_LOGIC_VECTOR(phase_accumulator_length-1 downto 0);
-				
+
 				CLK_OUT : out  STD_LOGIC;
 				PULSE_OUT : out  STD_LOGIC
 			  );
@@ -392,7 +395,7 @@ UART2_SPI_MASTER : spi_master
 --			ALMST_F	=> 3,					-- fifo flag for almost full regs away from empty fifo
 --			ALMST_E	=> 3						-- fifo regs away from empty fifo
 --			)
---	Port map( 
+--	Port map(
 --			clk 					=> CLK,
 --			n_reset 				=> not RESET,
 --			rd_en 				=> dds_fifo_rd_en_s,
@@ -424,14 +427,14 @@ DDS_BITRATE_GEN : phase_accumulator
 	 Generic map(
 				phase_accumulator_length  => 32
 	 )
-    Port map ( 
+    Port map (
 				CLK 				=> CLK,
 
 				RESET				=> dds_phase_accumulator_reset_s,
 
 				PHASE_ACCUMULATOR_LOAD_EN  => dds_phase_accumulator_load_en_s,
 				PHASE_ACCUMULATOR 			=> dds_phase_accumulator_word_s,
-				
+
 				CLK_OUT 							=> open,
 				PULSE_OUT						=> dds_bit_pulse_s
 			  );
@@ -500,12 +503,12 @@ SPARE8 <= '0';
 --SPARE7 <= dds_spi_master_busy_s;
 --SPARE8 <= dds_spi_master_en_s;
 
-
 process(CLK)
 begin
 
 	-- Update chip select on rising edge of the system clock only
 	if(rising_edge(CLK) ) then
+
 		if(RESET = '1') then
 			-- Things to reset here
 			MISO_SRC_SEL <= "00"; -- Select the FGPA as the source sel for the MISO
@@ -520,13 +523,13 @@ begin
 			dds_data_rdy_to_send_s <= '0';
 			dds_send_gain_zero_s <= '0';
 			dds_send_continous_s <= '0';
-			
+
 		else
-		
+
 		-- Delay the command ready signal to have a edge detect
 		command_ready_d_s <= COMMAND_READY;
 
-		
+
 		-- Command validity detect
 		-- Detect falling edge of command ready
 		if(command_ready_d_s = '1' and COMMAND_READY = '0') then
@@ -544,14 +547,14 @@ begin
 		else -- Clear the flags rest of the time
 			valid_command_rx_s <= '0';
 		end if;
-		
+
 		-- Clear the invalid flags on a sucessful command received
 		if(valid_command_rx_s = '1') then
 			invalid_command_rx_s <= '0';
 			incomplete_command_rx_s <= '0';
 		end if;
-	
-		
+
+
 		-- Action to perform on command start (latch inputs, reset stuff...)
 		if(command_ready_d_s = '0' and COMMAND_READY = '1') then
 			-- Nothing to do for now...
@@ -603,7 +606,7 @@ begin
 		else
 			dds_state_wait_for_time_s <= '0';
 		end if;
-		
+
 		-- DDS state machine decoding of state to reduce timings constraints
 		if(dds_state_s = time_to_send) then
 			dds_time_to_send_s <= '1';
@@ -643,15 +646,15 @@ begin
 					dds_data_rdy_to_send_s <= '0';
 					dds_state_s <= wait_for_time;
 				end if;
-				
+
 			WHEN wait_for_time=>	-- Wait here until it's time to send the data
-			
+
 			WHEN time_to_send=>	-- Prepare to send now
 
 			WHEN apply_gain=>
 				dds_spi_master_en_s <= '0';
 				dds_state_s <= apply_gain_d1;
-				
+
 			WHEN apply_gain_d1=>
 				dds_state_s <= apply_gain_d2;
 			WHEN apply_gain_d2=>
@@ -662,9 +665,9 @@ begin
 					dds_io_ud_clk_s <= '1';	-- Update the IO value
 					dds_phase_accumulator_reset_s <= '0'; -- Release the phase accumulator now !
 				end if;
-				
+
 			WHEN output_bit7=>
-				dds_io_ud_clk_s <= '0';	
+				dds_io_ud_clk_s <= '0';
 				DDS_FSK_BPSK_HOLD <= dds_ram_rd_data_s(7);
 				if(dds_bit_pulse_s = '1') then
 					if(dds_ram_last_byte_s = '1' and dds_bits_to_send_on_last_byte_s = conv_std_logic_vector(1,4)) then
@@ -681,8 +684,8 @@ begin
 					dds_spi_master_tx_data_s(11 downto 0) <= (others =>'0'); -- Build the SPI command
 					dds_spi_master_en_s <= '1';
 				else
-					dds_spi_master_en_s <= '0';					
-					--dds_io_ud_clk_s <= '0';	
+					dds_spi_master_en_s <= '0';
+					--dds_io_ud_clk_s <= '0';
 				end if;
 
 
@@ -767,21 +770,50 @@ begin
 			WHEN send_complete_d1=>
 				dds_io_ud_clk_s <= '0';
 				dds_state_s <= idle;
-			
+
 		END CASE;
 
 
 			if(dds_ram_wr_en_s(0) = '1') then
-				dds_ram_wr_en_s(0) <= '0';		-- Clear 
+				dds_ram_wr_en_s(0) <= '0';		-- Clear
 				dds_ram_wr_addr_s <= dds_ram_wr_addr_s + 1; -- Increment the write address
 			end if;
 
-	
+			-- Default value: inhibit SPI MISO
+			FORCEZ <= '1';
+			-- Default value for the signal to send the status register
+			BYTE_TX_IS_STATUS <= '0';
+
 			-- if the command is now ready
 			if(COMMAND_READY = '1') then
 				CASE COMMAND IS
+
+					-- Commands that are received by multiple slaves simultaneously
+
+					-- Read the status registers of the cards (one byte per card)
+					-- This card position is 2
+					WHEN "10000000" =>
+						-- No receive data
+
+						-- Set the reply data at the right time
+						if (unsigned(BYTE_RX_COUNT) = 2) then
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+							-- Indicate that the status register has to be sent
+							BYTE_TX_IS_STATUS <= '1';
+							-- Command check
+							if(BYTE_RX_READY_PULSE ='1') then
+								valid_command_completed_s <= '1';
+							end if;
+						end if;
+
+					-- Commands that target only this slave
+
 					WHEN "00000000" => -- Command 0 : Read card ID
 						-- No receive data
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 
 						-- setup the reply data as the byte counter change (not that you have few clock cycle to setup data (before next byte start to output...)
 						if(unsigned(BYTE_RX_COUNT) = 1) then
@@ -808,7 +840,7 @@ begin
 								config_register_s <= BYTE_RX;
 							end if;
 						end if;
-						
+
 						-- Nothing to reply
 						BYTE_TX <= (others => '0');
 
@@ -826,10 +858,10 @@ begin
 								led_control_register_s <= BYTE_RX;
 							end if;
 						end if;
-						
+
 						-- Nothing to reply
 						BYTE_TX <= (others => '0');
-						
+
 						-- Command check
 						if(BYTE_RX_READY_PULSE ='1') then
 							if(unsigned(BYTE_RX_COUNT) = 1) then
@@ -840,7 +872,10 @@ begin
 
 					WHEN "00000011" => -- Command 3 : Read sync time counter
 						-- No data to read
-						
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
+
 						-- Reply contains the latched sync_time counter
 						if (unsigned(BYTE_RX_COUNT) = 1) then
 							BYTE_TX <= sync_time_read_latch_s(31 downto 24);
@@ -863,21 +898,21 @@ begin
 
 					WHEN "00000100" => -- Command 4 : Direct talk with DDS
 							valid_command_completed_s <= '1';
-							MISO_SRC_SEL <= "11"; -- Select the DDS as the source sel for the MISO				
+							MISO_SRC_SEL <= "11"; -- Select the DDS as the source sel for the MISO
 							dds_spi_mux_s <= '0'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 
 					WHEN "00000101" => -- Command 5 : Direct talk with UART1
 							valid_command_completed_s <= '1';
-							MISO_SRC_SEL <= "01"; -- Select the DDS as the source sel for the MISO				
+							MISO_SRC_SEL <= "01"; -- Select the DDS as the source sel for the MISO
 							dds_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart1_spi_mux_s <= '0'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 
 					WHEN "00000110" => -- Command 6 : Direct talk with UART2
 							valid_command_completed_s <= '1';
-							MISO_SRC_SEL <= "10"; -- Select the DDS as the source sel for the MISO				
+							MISO_SRC_SEL <= "10"; -- Select the DDS as the source sel for the MISO
 							dds_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '0'; -- 0 = connected to CPU, 1 = connected to FPGA
@@ -890,7 +925,7 @@ begin
 								dds_data_rdy_to_send_s <= '0';
 								dds_ram_wr_addr_s <= (others => '0');		-- Reset the write address
 								dds_channel_gain(15 downto 8) <= BYTE_RX;
-							elsif (unsigned(BYTE_RX_COUNT) = 2) then		
+							elsif (unsigned(BYTE_RX_COUNT) = 2) then
 								dds_channel_gain(7 downto 0) <= BYTE_RX;
 							elsif (unsigned(BYTE_RX_COUNT) = 3) then		-- Grab the time when the send is required
 								dds_tx_time_s(31 downto 24) <= BYTE_RX;
@@ -910,12 +945,13 @@ begin
 							end if;
 --						else
 --							if(dds_ram_wr_en_s(0) = '1') then
---								dds_ram_wr_en_s(0) <= '0';		-- Clear 
+--								dds_ram_wr_en_s(0) <= '0';		-- Clear
 --								dds_ram_wr_addr_s <= dds_ram_wr_addr_s + 1; -- Increment the write address
 --							end if;
-						end if; 
-						
-					
+						end if;
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 						-- always reply 0
 						BYTE_TX <= (others => '0');
 
@@ -939,8 +975,10 @@ begin
 								dds_phase_accumulator_word_s(7 downto 0) <= BYTE_RX;
 								dds_phase_accumulator_load_en_s <= '1';
 							end if;
-						end if; 
-						
+						end if;
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 						-- always reply 0
 						BYTE_TX <= (others => '0');
 
@@ -967,8 +1005,10 @@ begin
 								uart1_mode_s <= BYTE_RX(0);
 								uart1_time_ready_s <= '1';
 							end if;
-						end if; 
-						
+						end if;
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 						-- always reply 0
 						BYTE_TX <= (others => '0');
 
@@ -994,8 +1034,10 @@ begin
 								uart2_mode_s <= BYTE_RX(0);
 								uart2_time_ready_s <= '1';
 							end if;
-						end if; 
-						
+						end if;
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 						-- always reply 0
 						BYTE_TX <= (others => '0');
 
@@ -1020,8 +1062,10 @@ begin
 								fsk_stop_time_s(7 downto 0) <= BYTE_RX;
 								fsk_stop_time_ready_s <= '1';
 							end if;
-						end if; 
-						
+						end if;
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 						-- always reply 0
 						BYTE_TX <= (others => '0');
 
@@ -1033,17 +1077,17 @@ begin
 						end if;
 
 					WHEN OTHERS =>
-						MISO_SRC_SEL <= "00"; -- Select the FGPA as the source sel for the MISO				
+						MISO_SRC_SEL <= "00"; -- Select the FGPA as the source sel for the MISO
 						dds_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 						uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 						uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 						BYTE_TX <= (others => '0');
 						invalid_command_detected_s <= '1';
 						dds_phase_accumulator_load_en_s <= '0';
-					
+
 				END CASE;
 			else -- if(COMMAND_READY = '1') then
-				MISO_SRC_SEL <= "00"; -- Select the FGPA as the source sel for the MISO				
+				MISO_SRC_SEL <= "00"; -- Select the FGPA as the source sel for the MISO
 				dds_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 				uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 				uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA

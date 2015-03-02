@@ -148,8 +148,11 @@ component aio_protocol_data_decode
 				COMMAND : in STD_LOGIC_VECTOR(7 downto 0);
 				COMMAND_READY : in STD_LOGIC;
 
+				FORCEZ : out STD_LOGIC;
+
 				BYTE_RX : in STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_TX : out STD_LOGIC_VECTOR(7 downto 0);
+				BYTE_TX_IS_STATUS : out STD_LOGIC;
 				BYTE_RX_COUNT : in STD_LOGIC_VECTOR(7 downto 0);
 				BYTE_RX_READY_PULSE : in STD_LOGIC;
 
@@ -217,11 +220,13 @@ signal incomplete_command_rx_s : STD_LOGIC;			-- incomplete command indicator
 
 
 -- SPI parallel interface signals
+signal forcez_s : STD_LOGIC;
 signal byte_rx_s : STD_LOGIC_VECTOR(7 downto 0);
 signal byte_tx_s : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 signal byte_rx_count_s : STD_LOGIC_VECTOR(7 downto 0);
 signal byte_rx_ready_pulse_s : STD_LOGIC;
 signal byte_tx_specific_protocol_s : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+signal byte_tx_is_status_s : STD_LOGIC := '0';
 
 TYPE STATE_TYPE IS (idle,command, data);
 SIGNAL state_s   : STATE_TYPE := idle;
@@ -282,7 +287,7 @@ U1 : spi_slave_gpio
 		CS => CS,
 
 		-- Force MISO to 'Z'
-		FORCEZ => '0',
+		FORCEZ => forcez_s,
 
 		-- Parallel interface
 		BYTE_RX => byte_rx_s,
@@ -309,8 +314,11 @@ U2 : aio_protocol_data_decode
 				COMMAND => command_s,
 				COMMAND_READY => command_ready_s,
 
+				FORCEZ => forcez_s,
+
 				BYTE_RX => byte_rx_s,
 				BYTE_TX => byte_tx_specific_protocol_s,
+				BYTE_TX_IS_STATUS => byte_tx_is_status_s,
 				BYTE_RX_COUNT => byte_rx_count_s,
 				BYTE_RX_READY_PULSE => byte_rx_ready_pulse_s,
 
@@ -434,7 +442,11 @@ begin
 
 						WHEN data=>
 							-- Assign the data from the specific protocol block now
-							byte_tx_s <= byte_tx_specific_protocol_s;
+							if byte_tx_is_status_s = '1' then
+								byte_tx_s <= card_state_s;
+							else
+								byte_tx_s <= byte_tx_specific_protocol_s;
+							end if;
 
 					END CASE;
 				else -- if(cs_s = '0') then
