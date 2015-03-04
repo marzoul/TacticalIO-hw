@@ -102,6 +102,6 @@ Top.bit: Top.ut Top.ncd
 # .prm is log file
 # .bit => .mcs
 GPIO_PROM.mcs: Top.bit
-	promgen -w -p mcs -c FF -o ./GPIO_PROM -s 4096 -u 0000 ./top.bit -spi
+	promgen -w -p mcs -c FF -o ./GPIO_PROM -s 4096 -u 0000 ./Top.bit -spi
 
 
