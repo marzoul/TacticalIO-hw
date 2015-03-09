@@ -598,6 +598,52 @@ begin
 							end if;
 						end if;
 
+					-- Send data to all cards. Here it corresponds to existing command 0x04 (7 data bytes)
+					-- This card position is 1: bytes 1 to 7
+					WHEN "10000001" =>
+
+						-- Check if data received flag is set
+						if(BYTE_RX_READY_PULSE ='1') then
+							if(unsigned(BYTE_RX_COUNT) = 1) then
+								dac_write_fifo_register_s(55 downto 48) <= BYTE_RX;
+								dac_fifo_full_flag_latch_s <= dac_fifo_full_flag_s;
+							elsif (unsigned(BYTE_RX_COUNT) = 2) then
+								dac_write_fifo_register_s(47 downto 40) <= BYTE_RX;
+							elsif (unsigned(BYTE_RX_COUNT) = 3) then
+								dac_write_fifo_register_s(39 downto 32) <= BYTE_RX;
+							elsif (unsigned(BYTE_RX_COUNT) = 4) then
+								dac_write_fifo_register_s(31 downto 24) <= BYTE_RX;
+							elsif (unsigned(BYTE_RX_COUNT) = 5) then
+								dac_write_fifo_register_s(23 downto 16) <= BYTE_RX;
+							elsif (unsigned(BYTE_RX_COUNT) = 6) then
+								dac_write_fifo_register_s(15 downto 8) <= BYTE_RX;
+							elsif (unsigned(BYTE_RX_COUNT) = 7) then
+								dac_write_fifo_register_s(7 downto 0) <= BYTE_RX;
+								if(dac_fifo_full_flag_latch_s = '0') then
+									dac_write_fifo_register_ready_s <= '1';
+								end if;
+							end if;
+						end if;
+
+						-- Authorize output on SPI MISO, only when it's this card's turn
+						if unsigned(BYTE_RX_COUNT) >= 1 and unsigned(BYTE_RX_COUNT) <= 7 then
+							FORCEZ <= '0';
+						end if;
+
+						if (unsigned(BYTE_RX_COUNT) = 7) then
+							-- Send the full flag state of the fifo in the LSB. If the full flag is set, the write will not occur
+							BYTE_TX <= "0000000" & dac_fifo_full_flag_latch_s;
+						else
+							BYTE_TX <= (others => '0');
+						end if;
+
+						-- Command check
+						if(BYTE_RX_READY_PULSE ='1') then
+							if(unsigned(BYTE_RX_COUNT) = 7) then
+								valid_command_completed_s <= '1';
+							end if;
+						end if;
+
 					-- Commands that target only this slave
 
 					WHEN "00000000" => -- Command 0 : Read card ID

@@ -309,7 +309,8 @@ signal uart2_mode_s : STD_LOGIC; -- 0 = RS232 1 = RS485
 signal uart2_time_s : STD_LOGIC_VECTOR(31 downto 0);
 signal uart2_time_ready_s : STD_LOGIC;
 
-
+-- Signal specific to global command 0x81: save byte number 34
+signal command81_byte34 : STD_LOGIC_VECTOR(7 downto 0);
 
 begin
 
@@ -807,6 +808,51 @@ begin
 							end if;
 						end if;
 
+					-- Send data to all cards. Here it corresponds to existing commands 0x05 and 0x06 (data bytes unknown)
+					-- This card position is 3: byte 34 is 0x05 or 0x06
+					WHEN "10000001" =>
+
+						-- Save byte 34
+						if(BYTE_RX_READY_PULSE ='1') then
+							if(unsigned(BYTE_RX_COUNT) = 34) then
+								command81_byte34 <= BYTE_RX;
+							end if;
+						end if;
+
+						if(unsigned(BYTE_RX_COUNT) > 34) then
+
+							-- Authorize output on SPI MISO
+							FORCEZ <= '0';
+
+							case command81_byte34 is
+
+								WHEN "00000101" => -- Command 5 : Direct talk with UART1
+									valid_command_completed_s <= '1';
+									MISO_SRC_SEL    <= "01";  -- Select the DDS as the source sel for the MISO
+									dds_spi_mux_s   <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart1_spi_mux_s <= '0';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart2_spi_mux_s <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+
+								WHEN "00000110" => -- Command 6 : Direct talk with UART2
+									valid_command_completed_s <= '1';
+									MISO_SRC_SEL    <= "10";  -- Select the DDS as the source sel for the MISO
+									dds_spi_mux_s   <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart1_spi_mux_s <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart2_spi_mux_s <= '0';   -- 0 = connected to CPU, 1 = connected to FPGA
+
+								WHEN OTHERS =>
+									MISO_SRC_SEL    <= "00";  -- Select the FGPA as the source sel for the MISO
+									dds_spi_mux_s   <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart1_spi_mux_s <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									uart2_spi_mux_s <= '1';   -- 0 = connected to CPU, 1 = connected to FPGA
+									BYTE_TX <= (others => '0');
+									invalid_command_detected_s <= '1';
+									dds_phase_accumulator_load_en_s <= '0';
+
+							end case;
+
+						end if;
+
 					-- Commands that target only this slave
 
 					WHEN "00000000" => -- Command 0 : Read card ID
@@ -903,6 +949,9 @@ begin
 							uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
+
 					WHEN "00000101" => -- Command 5 : Direct talk with UART1
 							valid_command_completed_s <= '1';
 							MISO_SRC_SEL <= "01"; -- Select the DDS as the source sel for the MISO
@@ -910,12 +959,18 @@ begin
 							uart1_spi_mux_s <= '0'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
+
 					WHEN "00000110" => -- Command 6 : Direct talk with UART2
 							valid_command_completed_s <= '1';
 							MISO_SRC_SEL <= "10"; -- Select the DDS as the source sel for the MISO
 							dds_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart1_spi_mux_s <= '1'; -- 0 = connected to CPU, 1 = connected to FPGA
 							uart2_spi_mux_s <= '0'; -- 0 = connected to CPU, 1 = connected to FPGA
+
+						-- Authorize output on SPI MISO
+						FORCEZ <= '0';
 
 					WHEN "00000111" => -- Command 7 : Fill FSK RAM
 						-- Check if data received flag is set

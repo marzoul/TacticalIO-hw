@@ -584,6 +584,93 @@ begin
 								end if;
 							end if;
 
+						-- Send data to all cards. Here it corresponds to existing command 0x09 (26 data bytes)
+						-- This card position is 2: bytes 8 to 33
+						WHEN "10000001" =>
+							-- Check if data received flag is set
+							if(BYTE_RX_READY_PULSE ='1') then
+								if(unsigned(BYTE_RX_COUNT) = 8) then
+									pg_write_fifo_register_s(97 downto 96) <= BYTE_RX(1 downto 0);
+								elsif(unsigned(BYTE_RX_COUNT) = 9) then
+									pg_write_fifo_register_s(95 downto 88) <= BYTE_RX;
+									pg_fifo_full_flag_latch_s <= pg_fifo_full_flag_s;
+								elsif(unsigned(BYTE_RX_COUNT) = 10) then
+									pg_write_fifo_register_s(87 downto 80) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 11) then
+									pg_write_fifo_register_s(79 downto 72) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 12) then
+									pg_write_fifo_register_s(71 downto 64) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 13) then
+									pg_write_fifo_register_s(63 downto 56) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 14) then
+									pg_write_fifo_register_s(55 downto 48) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 15) then
+									pg_write_fifo_register_s(47 downto 40) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 16) then
+									pg_write_fifo_register_s(39 downto 32) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 17) then
+									pg_write_fifo_register_s(31 downto 24) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 18) then
+									pg_write_fifo_register_s(23 downto 16) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 19) then
+									pg_write_fifo_register_s(15 downto 8) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 20) then
+									pg_write_fifo_register_s(7 downto 0) <= BYTE_RX;
+									if(pg_fifo_full_flag_latch_s = '0') then
+										pg_write_fifo_register_ready_s <= '1';
+									end if;
+								elsif(unsigned(BYTE_RX_COUNT) = 21) then
+									pg_write_fifo_register_s(97 downto 96) <= BYTE_RX(1 downto 0);
+								elsif(unsigned(BYTE_RX_COUNT) = 22) then
+									pg_write_fifo_register_s(95 downto 88) <= BYTE_RX;
+									pg_fifo_full_flag_latch_s <= pg_fifo_full_flag_s;
+								elsif(unsigned(BYTE_RX_COUNT) = 23) then
+									pg_write_fifo_register_s(87 downto 80) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 24) then
+									pg_write_fifo_register_s(79 downto 72) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 25) then
+									pg_write_fifo_register_s(71 downto 64) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 26) then
+									pg_write_fifo_register_s(63 downto 56) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 27) then
+									pg_write_fifo_register_s(55 downto 48) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 28) then
+									pg_write_fifo_register_s(47 downto 40) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 29) then
+									pg_write_fifo_register_s(39 downto 32) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 30) then
+									pg_write_fifo_register_s(31 downto 24) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 31) then
+									pg_write_fifo_register_s(23 downto 16) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 32) then
+									pg_write_fifo_register_s(15 downto 8) <= BYTE_RX;
+								elsif(unsigned(BYTE_RX_COUNT) = 33) then
+									pg_write_fifo_register_s(7 downto 0) <= BYTE_RX;
+									if(pg_fifo_full_flag_latch_s = '0') then
+										pg_write_fifo_register_ready_s <= '1';
+									end if;
+								end if;
+							end if;
+
+							-- Authorize output on SPI MISO, only when it's this card's turn
+							if unsigned(BYTE_RX_COUNT) >= 8 and unsigned(BYTE_RX_COUNT) <= 33 then
+								FORCEZ <= '0';
+							end if;
+
+							if (unsigned(BYTE_RX_COUNT) = 33) then
+								-- Send the full flag state of the fifo in the LSB. If the full flag is set, the write will not occur
+								BYTE_TX <= "0000000" & pg_fifo_full_flag_latch_s;
+							else
+								BYTE_TX <= (others => '0');
+							end if;
+
+							-- Command check
+							if(BYTE_RX_READY_PULSE ='1') then
+								if(unsigned(BYTE_RX_COUNT) = 33) then
+									valid_command_completed_s <= '1';
+								end if;
+							end if;
+
 						-- Commands that target only this slave
 
 						WHEN "00000000" => -- Command 0 : Read card ID
